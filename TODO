@@ -1,12 +1,19 @@
 PASSOS:
+- Curso React Fundamentals
 - Faz o dashboard em react que coloca nome e pontos
 - Faz a auditoria do dashboard em react
 - Faz autenticação
+- Faz o admin
+- Curso React Redux
 - Faz backend em meteor
 - Publica no docker da aws
 - Arruma o domínio no dns
 - Compartilha com a galera da empresa
 - Faz a lojinha
 - Compartilha no github o novo boilerplate (do abramov + docker)
+- Curso de React Native
 - Faz o mesmo app em react native
 - Publica na Apple Store
+- Read watchkit
+- Do an iwatch app
+- Publish react-iwatch
