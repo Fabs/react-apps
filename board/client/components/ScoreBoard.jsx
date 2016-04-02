@@ -16,7 +16,7 @@ export default class HelloWorld extends React.Component {
         <option value=''>Escolha alguém</option>
         {this.props.scoreList.map((player, i) => {
           return(
-            <option value={i}>{player.name}</option>
+            <option key={i} value={i}>{player.name}</option>
         )})}
       </select>
     );
