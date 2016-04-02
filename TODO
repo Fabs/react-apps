@@ -1,0 +1,12 @@
+PASSOS:
+- Faz o dashboard em react que coloca nome e pontos
+- Faz a auditoria do dashboard em react
+- Faz autenticação
+- Faz backend em meteor
+- Publica no docker da aws
+- Arruma o domínio no dns
+- Compartilha com a galera da empresa
+- Faz a lojinha
+- Compartilha no github o novo boilerplate (do abramov + docker)
+- Faz o mesmo app em react native
+- Publica na Apple Store
