@@ -1,4 +1,0 @@
-{
-  "esnext": true,
-  "predef": [ "React", "__DEV__", "console", "module", "require", "__dirname", "window", "process" ]
-}
