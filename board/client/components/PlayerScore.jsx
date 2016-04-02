@@ -4,12 +4,12 @@ export default class PlayerScore extends React.Component {
   render() {
     return (
       <tr>
-        <td className="collapsing">
-          <i className="folder icon"/>
+        <td>
+          <i className="child icon"/>
           {this.props.playerName}
         </td>
         <td>{this.props.playerScore}</td>
-        <td className="right aligned collapsing">{this.props.playerBalance}</td>
+        <td className="right aligned">{this.props.playerBalance}</td>
       </tr>
     )
   };

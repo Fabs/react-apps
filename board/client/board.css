@@ -1,1 +1,22 @@
 /* CSS declarations go here */
+body {
+    margin-top: 13px;
+    min-width: 752px;
+}
+
+.uix.ui.greyAccent{
+    background-color: #eee;
+    color: #111;
+}
+
+.uix.ui.icon.fixThumbs{
+    margin: 0;
+    font-size: 14px;
+}
+
+.uix.ui.select{
+    color: black;
+    height: 35px;
+    width: 200px;
+    margin-right: 5px;
+}
