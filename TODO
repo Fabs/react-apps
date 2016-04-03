@@ -1,5 +1,4 @@
 PASSOS:
-- Curso React Fundamentals
 - Faz o dashboard em react que coloca nome e pontos
 - Faz a auditoria do dashboard em react
 - Faz autenticação
@@ -11,7 +10,6 @@ PASSOS:
 - Compartilha com a galera da empresa
 - Faz a lojinha
 - Compartilha no github o novo boilerplate (do abramov + docker)
-- Curso de React Native
 - Faz o mesmo app em react native
 - Publica na Apple Store
 - Read watchkit
