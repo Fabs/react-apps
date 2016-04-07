@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  dashboard:
+    build: ./board
+    ports:
+      - "80:80"
+    links:
+      - mongo
+    volumes:
+      - "./board:/app"
+    environment:
+      - MONGO_URL=mongodb://mongo/react-loja
+      - ROOT_URL=http://192.168.99.100
+      #- MAIL_URL=smtp://some.mailserver.com:25
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - "./data:/data/db"
+
