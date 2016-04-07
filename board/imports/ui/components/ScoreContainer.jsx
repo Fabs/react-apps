@@ -2,14 +2,14 @@ import React from 'react';
 import ScoreBoard from './ScoreBoard.jsx';
 import ActionBar from './ActionBar.jsx';
 
-export default class ScoreView extends React.Component {
+export default class ScoreContainer extends React.Component {
   sortedData(){
     return this.data.sort((a,b) => b.points - a.points);
   }
 
   render() {
     this.data = [
-      {id: 1, name: 'fabs', points: 10}, 
+      {id: 1, name: 'fabs', points: 10},
       {id: 2, name: 'lomba', points: 20 },
       {id: 3, name: 'raoni', points: 5 },
       {id: 4, name: 'barbara', points: 18 },
