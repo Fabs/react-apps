@@ -1,2 +1,0 @@
-FROM fabs/react-loja-dev
-RUN 'meteor npm install --save react react-dom'
