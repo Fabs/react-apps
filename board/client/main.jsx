@@ -1,8 +1,16 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import { Tracker } from 'meteor/tracker'
+
 import { render } from 'react-dom';
-import ScoreView from './components/ScoreView.jsx';
+import ScoreContainer from '/imports/ui/components/ScoreContainer.jsx';
+import { Players } from '/imports/api/collections/players.js'
+
+Meteor.subscribe('players');
+Tracker.autorun(() =>{
+  console.log(Players.find().fetch());
+});
 
 Meteor.startup(() => {
-  render(<ScoreView/>, document.getElementById('app'));
+  render(<ScoreContainer/>, document.getElementById('app'));
 });
