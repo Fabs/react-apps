@@ -1,22 +1,15 @@
 version: '2'
 
 services:
-  dashboard:
-    build: ./board
+  app:
+    image: fabs/react-loja
     ports:
       - "80:80"
-      - "3000:3000"
     links:
       - mongo
-    volumes:
-      - "./board:/app"
-      - "~/.meteor:/root/.meteor"
-    entrypoint: "/bin/sh /app/run.sh"
     environment:
-      - MONGO_URL=mongodb://mongo/react-loja
-      - ROOT_URL=http://192.168.99.100
-      #- MAIL_URL=smtp://some.mailserver.com:25
+      - MONGO_URL=mongodb://mongo/reactloja
+      - ROOT_URL=http://pontos.reativo.com
 
   mongo:
     image: mongo:latest
-
