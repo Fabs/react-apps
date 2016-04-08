@@ -1,16 +1,32 @@
-import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker'
 
+import React from 'react';
 import { render } from 'react-dom';
 import ScoreContainer from '/imports/ui/components/ScoreContainer.jsx';
 import { Players } from '/imports/api/collections/players.js'
 
+import { createStore, combineReducers } from 'redux';
+import { players } from '/imports/reducers/players.js';
+import { flush } from '/imports/actions/flushers.js';
+
+const reducers = combineReducers({ players });
+const store = createStore(reducers);
+
 Meteor.subscribe('players');
-Tracker.autorun(() =>{
-  console.log(Players.find().fetch());
+store.autorun = (run) => {
+  Tracker.autorun(() => {
+    console.log("------ Meteor Updates -------");
+    run(store.dispatch);
+  });
+};
+
+store.autorun(dispatch => {
+  const players = Players.find().fetch();
+  dispatch(flush(players))
 });
 
-Meteor.startup(() => {
-  render(<ScoreContainer/>, document.getElementById('app'));
+store.subscribe(() =>{
+  var state = store.getState();
+  render(<ScoreContainer state={ state } />, document.getElementById('app'));
 });
