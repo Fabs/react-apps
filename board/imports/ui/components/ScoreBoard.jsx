@@ -46,8 +46,8 @@ export default class HelloWorld extends React.Component {
           </tr>
           <tr>
             <th className="ui uix greyAccent">Maravilhoso Indivíduo</th>
-            <th className="ui uix greyAccent">Pontos Totais</th>
-            <th className="ui uix greyAccent right aligned">Crédito Lojinha</th>
+            <th className="ui uix greyAccent">Credito na Lojinha</th>
+            <th className="ui uix greyAccent right aligned">Pontos Totais</th>
           </tr>
         </thead>
         <tbody>
