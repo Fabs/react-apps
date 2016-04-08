@@ -3,9 +3,9 @@ import ScoreBoard from './ScoreBoard.jsx';
 import ActionBar from './ActionBar.jsx';
 
 export default class ScoreContainer extends React.Component {
-  sortedData(){
+  sortedData() {
     var state = this.props.state;
-    return state.players.sort((a,b) => b.points - a.points);
+    return state.players.sort((a, b) => b.points - a.points);
   }
 
   render() {
@@ -21,4 +21,4 @@ export default class ScoreContainer extends React.Component {
       </div>
     );
   }
-`
+}

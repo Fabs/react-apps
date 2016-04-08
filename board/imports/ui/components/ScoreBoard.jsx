@@ -5,7 +5,7 @@ export default class HelloWorld extends React.Component {
   renderPlayers(){
     return this.props.scoreList.map((player) => {
       return(
-        <PlayerScore key={player.id} playerName={player.name} playerScore={player.points} playerBalance={player.points} />
+        <PlayerScore key={player._id} playerName={player.name} playerScore={player.points} playerBalance={player.points} />
       )
     });
   }
@@ -21,14 +21,15 @@ export default class HelloWorld extends React.Component {
       </select>
     );
   }
-  
+
+//{this.renderPlayerOptions()}
+//<button className="ui green button">+<i className="ui icon coffee"/></button>
+//<button className="ui green button">+<i className="ui icon food"/></button>
+//  <button className="ui red button"><b><i className="ui icon minus"/><i className="ui uix icon frown fixThumbs"/></b></button> 
   renderActions(){
     return(
       <div>
-        {this.renderPlayerOptions()}
-        <button className="ui green button">+<i className="ui icon coffee"/></button>
-        <button className="ui green button">+<i className="ui icon food"/></button>
-        <button className="ui red button"><b><i className="ui icon minus"/><i className="ui uix icon frown fixThumbs"/></b></button>
+
       </div>
     )
   }
