@@ -9,7 +9,7 @@ export default class ScoreContainer extends React.Component {
 
   render() {
     return (
-        <ScoreBoard className='ui' scoreList={this.sortedData()} auth={this.props.auth}/>
+        <ScoreBoard className='ui' scoreList={this.sortedData()} {...this.props}/>
     );
   }
 }

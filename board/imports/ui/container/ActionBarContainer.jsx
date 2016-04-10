@@ -1,6 +1,14 @@
 import React from 'react';
 
 export default class ActionBarContainer extends React.Component {
+  selectScoreMode(){
+
+  }
+
+  selectPlayer(){
+
+  }
+
   renderActionsWithConfirmation(){
     return(<div></div>);
   }
@@ -20,7 +28,6 @@ export default class ActionBarContainer extends React.Component {
   renderActions(){
     return(
       <div>
-        {this.renderPlayerOptions()}
         <button className="ui green button">+<i className="ui icon coffee"/></button>
         <button className="ui green button">+<i className="ui icon food"/></button>
         <button className="ui red button"><b><i className="ui icon minus"/><i className="ui uix icon frown fixThumbs"/></b></button>
@@ -29,12 +36,12 @@ export default class ActionBarContainer extends React.Component {
   }
 
   renderStep(){
-    switch(this.props.scoring){
-      case 1:
+    switch(this.props.scoring.step){
+      case 0:
         return this.renderActions();
-      case 2:
+      case 1:
         return this.renderPlayerOptions();
-      case 3:
+      case 2:
         return this.renderActionsWithConfirmation();
       default:
         return (<span>Oops!</span>);
