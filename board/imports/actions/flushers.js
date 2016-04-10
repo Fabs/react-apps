@@ -1,7 +1,15 @@
-const flush = (players) => {
+const flushPlayers = (players) => {
   return {
     type: 'FLUSH_PLAYERS',
     players
   }
 }
-export { flush };
+
+const flushTransactions = (transactions) => {
+  return {
+    type: 'FLUSH_TRANSACTIONS',
+    transactions
+  }
+}
+
+export { flushPlayers, flushTransactions };
