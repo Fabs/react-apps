@@ -1,5 +1,6 @@
 import React from 'react';
-import PlayerScore from './PlayerScore.jsx';
+import ActionBarContainer from '../container/ActionBarContainer.jsx';
+import PlayerScore from '../presentation/PlayerScore.jsx';
 
 export default class ScoreBoard extends React.Component {
   renderPlayers(){
@@ -10,37 +11,13 @@ export default class ScoreBoard extends React.Component {
     });
   }
 
-  renderPlayerOptions(){
-    return (
-      <select className="ui uix select">
-        <option value=''>Escolha alguém</option>
-        {this.props.scoreList.map((player, i) => {
-          return(
-            <option key={i} value={i}>{player.name}</option>
-        )})}
-      </select>
-    );
-  }
-
-//{this.renderPlayerOptions()}
-//<button className="ui green button">+<i className="ui icon coffee"/></button>
-//<button className="ui green button">+<i className="ui icon food"/></button>
-//  <button className="ui red button"><b><i className="ui icon minus"/><i className="ui uix icon frown fixThumbs"/></b></button> 
-  renderActions(){
-    return(
-      <div>
-
-      </div>
-    )
-  }
-  
   render() {
     return (
       <table className="ui striped table">
         <thead>
           <tr>
             <th className="ui uix greyAccent right aligned" colSpan="3">
-              {this.renderActions()}
+              <ActionBarContainer {...this.props} />
             </th>
           </tr>
           <tr>
