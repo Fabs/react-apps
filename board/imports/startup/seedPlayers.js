@@ -1,22 +1,24 @@
-import { Players } from '/imports/api/collections/players.js';
+import Players from '/imports/api/collections/players.js';
+import moment from 'moment';
 
 const initialPlayers = [
-  {name: 'barbara', points: 1+1, jokes: 0},
-  {name: 'felipe', points: 10, jokes: 0},
-  {name: 'fernando', points: 6+5+2, jokes: 0},
-  {name: 'fabs', points: 11+1+4, jokes: 0},
-  {name: 'jander', points: 11+1, jokes: 0},
-  {name: 'acarajé', points: 11+3+3, jokes: 0},
-  {name: 'thamila', points: 7+2, jokes: 0},
-  {name: 'william', points: 14+4, jokes: 0},
-  {name: 'lenise', points: 2, jokes: 0},
-  {name: 'edivaldo', points: 4+2, jokes: 0},
+  {name: 'barbara', legacy_points: 1+1},
+  {name: 'felipe', legacy_points: 10},
+  {name: 'fernando', legacy_points: 6+5+2},
+  {name: 'fabs', legacy_points: 11+1+4},
+  {name: 'jander', legacy_points: 11+1},
+  {name: 'acarajé', legacy_points: 11+3+3},
+  {name: 'thamila', legacy_points: 7+2},
+  {name: 'william', legacy_points: 14+4},
+  {name: 'lenise', legacy_points: 2},
+  {name: 'edivaldo', legacy_points: 4+2},
 ];
 
 const seedPlayers = function(){
   if(Players.find().fetch() == 0){
     for(let i in initialPlayers){
-      Players.insert(initialPlayers[i]);
+      Transactions.insert({owner: "O UNIVERSO", type: 'coffee/bread', created_at: moment(), player: initialPlayers[i].name, points: initialPlayers[i].legacy_points });
+      Players.insert(Object.assign(initialPlayers[i],{jokes: 0, coffee: 0, bread:0}));
     }
   }
 }

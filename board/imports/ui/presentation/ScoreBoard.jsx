@@ -1,7 +1,7 @@
 import React from 'react';
 import PlayerScore from './PlayerScore.jsx';
 
-export default class HelloWorld extends React.Component {
+export default class ScoreBoard extends React.Component {
   renderPlayers(){
     return this.props.scoreList.map((player) => {
       return(
