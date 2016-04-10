@@ -13,8 +13,15 @@ export default class SegmentsLayout extends React.Component {
           </span>
           <ActionBar className="ui item right floated"/>
         </div>
+
+        <h2 class="ui dividing header">Pontos</h2>
         <ScoreContainer className='ui' players={ this.props.state.players }/>
+
+        <h2 class="ui dividing header">Auditoria</h2>
         <TransactionsContainer className='ui' transactions={ this.props.state.transactions }/>
+
+
+        <h2 class="ui dividing header">Links</h2>
         <a href="https://loja.reativo.com/" target="_blank">Acesso a loja</a>
       </div>
     );

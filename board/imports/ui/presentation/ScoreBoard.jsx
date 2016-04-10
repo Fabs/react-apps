@@ -39,8 +39,7 @@ export default class ScoreBoard extends React.Component {
       <table className="ui striped table">
         <thead>
           <tr>
-            <th className="ui uix greyAccent"><h2>Placar</h2></th>
-            <th className="ui uix greyAccent right aligned" colSpan="2">
+            <th className="ui uix greyAccent right aligned" colSpan="3">
               {this.renderActions()}
             </th>
           </tr>

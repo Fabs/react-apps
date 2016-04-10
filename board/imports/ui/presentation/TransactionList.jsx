@@ -3,7 +3,7 @@ import moment from 'moment';
 
 export default class TransactionList extends React.Component {
   formatDate(date){
-    return moment(date._d).format('Do de MMMM/YYYY às h:mm:ss a');
+    return moment(date._d).format('DD de MMMM às hh:mm');
   }
 
   iconFor(transaction){
@@ -12,16 +12,19 @@ export default class TransactionList extends React.Component {
 
   render() {
     return (
-      <div className="ui relaxed divided list">
+      <div className="ui segment relaxed divided list">
         {this.props.transactions.map((transaction, i) => {
           return(
             <div className="item" key={transaction._id}>
-              <i className="large {iconFor(transaction} middle aligned icon"/>
+              <i className={this.iconFor(transaction) + " large iddle aligned icon"}/>
               <div className="content">
                 <span>
-                  { transaction.owner } em { ' ' }
+                  <b>{ transaction.owner }</b>
+                  em { ' ' }
                   { this.formatDate(transaction.created_at) } -
-                  Deu {transaction.points} ponto(s) por <b>{ transaction.type }</b> para { transaction.player }
+                  Deu <b>{transaction.points} ponto(s)</b>
+                  por <b>{ transaction.type }</b>
+                  para <b><span style={{ color: 'green'}}>{ transaction.player }</span></b>
                 </span>
               </div>
             </div>
