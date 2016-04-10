@@ -1,6 +1,5 @@
 import React from 'react';
 import ScoreBoard from '../presentation/ScoreBoard.jsx';
-import ActionBar from './ActionBarContainer.jsx';
 
 export default class ScoreContainer extends React.Component {
   sortedData() {
@@ -10,7 +9,7 @@ export default class ScoreContainer extends React.Component {
 
   render() {
     return (
-      <ScoreBoard className='ui' scoreList={this.sortedData()}/>
+        <ScoreBoard className='ui' scoreList={this.sortedData()} auth={this.props.auth}/>
     );
   }
 }
