@@ -37,14 +37,14 @@ export default class ActionBarContainer extends React.Component {
 
   renderStep(){
     switch(this.props.scoring.step){
-      case 0:
-        return this.renderActions();
       case 1:
-        return this.renderPlayerOptions();
+        return this.renderActions();
       case 2:
+        return this.renderPlayerOptions();
+      case 3:
         return this.renderActionsWithConfirmation();
       default:
-        return (<span>Oops!</span>);
+        return (<span>Seu cadastro precisa ser aprovado para poder distribuir Pontos!</span>);
     }
   }
 
