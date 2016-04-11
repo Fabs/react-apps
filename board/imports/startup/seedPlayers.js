@@ -21,6 +21,12 @@ const seedPlayers = function(){
       Players.insert(Object.assign(initialPlayers[i],{jokes: 0, coffee: 0, bread:0}));
     }
   }
+
+  //Meteor.call('player.add_points', 'jander', 'coffee', 3)
+  //Meteor.call('player.add_points', 'jander', 'joke', 2)
+  //Meteor.call('player.add_points', 'acarajé', 'coffee', 2)
+  //Meteor.call('player.add_points', 'will', 'coffee', 1)
+  //Meteor.call('player.add_points', 'will', 'joke', 1)
 }
 
 export { seedPlayers };
