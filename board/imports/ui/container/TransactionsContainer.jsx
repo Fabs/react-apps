@@ -9,7 +9,7 @@ export default class TransactionContainer extends React.Component {
 
   render() {
     return (
-      <TransactionList className='ui' transactions={this.sortedData()}/>
+      <TransactionList className='ui' transactionList={this.sortedData()}/>
     );
   }
 }

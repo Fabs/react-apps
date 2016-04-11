@@ -13,7 +13,7 @@ export default class TransactionList extends React.Component {
   render() {
     return (
       <div className="ui segment relaxed divided list">
-        {this.props.transactions.map((transaction, i) => {
+        {this.props.transactionList.map((transaction, i) => {
           return(
             <div className="item" key={transaction._id}>
               <i className={this.iconFor(transaction) + " large iddle aligned icon"}/>
@@ -34,6 +34,3 @@ export default class TransactionList extends React.Component {
     );
   }
 }
-
-
-
