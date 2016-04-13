@@ -10,4 +10,5 @@ const doLogout = () => {
     type: 'LOGOUT'
   }
 }
+
 export { doLogin, doLogout };

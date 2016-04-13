@@ -7,15 +7,15 @@ import { connect } from './backend.js';
 import { createStore, combineReducers } from 'redux';
 import { players } from '/imports/reducers/players.js';
 import { transactions } from '/imports/reducers/transactions.js';
-import { auth } from '/imports/reducers/auth.js';
+import { auth, admin } from '/imports/reducers/auth.js';
 import { scoring } from '/imports/reducers/scoring.js';
 
 const run = () =>{
-  const reducers = combineReducers({ players, transactions, auth, scoring });
+  const reducers = combineReducers({ players, transactions, auth, scoring , admin});
   const store = createStore(reducers);
   store.autorun = (f) => Tracker.autorun(() => f(store.dispatch));
 
-  connect(store);
+  connect(store, Meteor.userId());
 
   store.subscribe(() =>{
     var state = store.getState();

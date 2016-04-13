@@ -3,7 +3,7 @@ const players = (state = [], action) => {
       case 'FLUSH_PLAYERS':
         let players = action.players.map((player) => {
           let points = (player.legacy_points || 0) + (player.coffee || 0) + (player.bread || 0);
-          return Object.assign({},player,{ points });
+          return Object.assign({} ,player ,{ points });
         });
         return players;
       default:

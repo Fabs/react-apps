@@ -9,4 +9,13 @@ const auth = (state = {}, action) => {
   }
 }
 
-export { auth };
+const admin = (state = {}, action) => {
+  switch(action.type) {
+    case 'FLUSH_MODERATION':
+      return action.users;
+    default:
+      return state;
+  }
+}
+
+export { auth, admin };
