@@ -8,3 +8,10 @@ Meteor.publish('players',() =>{
 Meteor.publish('transactions',() =>{
   return Transactions.find();
 })
+
+Meteor.publish('users.moderation', function (uid) {
+  if(this.userId == uid && Meteor.users.find({status: 'admin', _id: uid}).count()){
+    return Meteor.users.find({status: {$exists: false}});
+  }
+  return this.ready();
+})

@@ -12,4 +12,11 @@ const flushTransactions = (transactions) => {
   }
 }
 
-export { flushPlayers, flushTransactions };
+const flushModeration = (users) => {
+  return {
+    type: 'FLUSH_MODERATION',
+    users
+  }
+}
+
+export { flushPlayers, flushTransactions, flushModeration };
