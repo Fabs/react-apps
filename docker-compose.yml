@@ -2,14 +2,17 @@ version: '2'
 
 services:
   app:
-    image: fabs/react-loja
+    build: ./board
     ports:
       - "80:80"
     links:
       - mongo
     environment:
       - MONGO_URL=mongodb://mongo/reactloja
-      - ROOT_URL=http://pontos.reativo.com
+      - ROOT_URL=http://localhost
+    command: meteor -p 80
+    volumes:
+      - "./board:/app"
 
   mongo:
     image: mongo:latest
