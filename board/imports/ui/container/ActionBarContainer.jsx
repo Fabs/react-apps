@@ -2,11 +2,9 @@ import React from 'react';
 
 export default class ActionBarContainer extends React.Component {
   selectScoreMode(){
-
   }
 
   selectPlayer(){
-
   }
 
   renderActionsWithConfirmation(){
@@ -50,7 +48,6 @@ export default class ActionBarContainer extends React.Component {
 
   render() {
     if (!this.props.auth.online) { return (<div></div>); }
-
     return(
       <div>
         {this.renderStep()}
