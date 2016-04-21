@@ -21,7 +21,6 @@ Meteor.methods({
     }
   },
   'player.grant_points': (options) =>{
-    console.log(options);
     let name = options.player;
     let type = options.type;
     let amount = 1;
