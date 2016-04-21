@@ -18,10 +18,12 @@ export default class PlayerScore extends React.Component {
           {this.props.name}
         </td>
         <td><h2>{this.pointsLabel(this,'balance')}</h2></td>
-        <td><h3>{this.pointsLabel(this,'coffee')}</h3></td>
-        <td><h3>{this.pointsLabel(this,'bread')}</h3></td>
-        <td><h3>{this.pointsLabel(this,'joke')}</h3></td>
-        <td><h3>{this.pointsLabel(this,'mess')}</h3></td>
+        <td><h3>
+          {this.pointsLabel(this,'coffee')}
+          {this.pointsLabel(this,'bread')}
+          {this.pointsLabel(this,'mess')}
+          {this.pointsLabel(this,'joke')}
+        </h3></td>
         <td className="right aligned"><h2>{this.props.total}</h2></td>
       </tr>
     )
