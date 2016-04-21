@@ -5,7 +5,8 @@ import StoreContext from '/imports/ui/StoreContext.jsx';
 
 import { connect } from './backend.js';
 
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { players } from '/imports/reducers/players.js';
 import { transactions } from '/imports/reducers/transactions.js';
 import { auth, moderatables } from '/imports/reducers/auth.js';
@@ -14,9 +15,10 @@ import { scoring } from '/imports/reducers/scoring.js';
 const run = () => {
   const reduceF = { players, transactions, auth, scoring , moderatables }
   const reducers = combineReducers(reduceF);
-  const store = createStore(reducers);
+  const middlewares = applyMiddleware(thunk);
+  const store = createStore(reducers, middlewares);
+
   store.autorun = (f) => Tracker.autorun(() => f(store.dispatch));
-  store.remoteDispatch = (...args) => Meteor.call(...args);
 
   connect(store, Meteor.userId());
 

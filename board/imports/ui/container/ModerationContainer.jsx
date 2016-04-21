@@ -3,7 +3,7 @@ import { approve } from '/imports/actions/auth.js';
 
 export default class ModerationContainer extends React.Component {
   approve(uid){
-    this.context.store.remoteDispatch('approve.user', uid);
+    this.context.store.dispatch(approve(uid));
   }
 
   render() {
