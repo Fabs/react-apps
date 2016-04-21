@@ -7,3 +7,5 @@ Meteor.startup(function () {
   seedPlayers();
   seedPrivileges();
 });
+
+//TODO: Tests Meteor

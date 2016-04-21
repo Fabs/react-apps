@@ -15,6 +15,7 @@ export default class ScoreContainer extends React.Component {
   }
 }
 
+//TODO: REFACTOR connect
 ScoreContainer.contextTypes = {
   store: React.PropTypes.object,
   state: React.PropTypes.object,

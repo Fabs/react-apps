@@ -4,6 +4,7 @@ import Transactions from '/imports/api/collections/transactions.js'
 import { flushPlayers, flushTransactions, flushModeration } from '/imports/actions/flushers.js';
 import { doLogin, doLogout } from '/imports/actions/auth.js';
 
+//TODO: REFACTOR too much repetition for every subscribe
 const connect = (store, userId) => {
   let playersHandler = Meteor.subscribe('players');
   store.autorun(function(dispatch){

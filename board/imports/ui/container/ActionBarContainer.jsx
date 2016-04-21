@@ -19,6 +19,7 @@ export default class ActionBarContainer extends React.Component {
     this.context.store.dispatch(scoreGrantCancel());
   }
 
+  //TODO: REFACTOR give it its own component
   renderActionsWithConfirmation(){
     const transaction = Object.assign({},this.props.scoring,{owner: 'Você', points: 1});
     return(
@@ -28,6 +29,7 @@ export default class ActionBarContainer extends React.Component {
     );
   }
 
+  //TODO: REFACTOR give it its own component
   renderPlayerOptions(){
     return (
       <select onChange={this.selectPlayer.bind(this)} className="ui uix select">
@@ -40,6 +42,7 @@ export default class ActionBarContainer extends React.Component {
     );
   }
 
+  //TODO: REFACTOR give it its own component
   renderActions(){
     return(
       <div>
@@ -64,6 +67,7 @@ export default class ActionBarContainer extends React.Component {
     }
   }
 
+  //TODO: REFACTOR control state and callbacks only
   render() {
     console.debug('RENDER',this);
     if (!this.props.auth.online) { return (<div></div>); }
@@ -75,6 +79,8 @@ export default class ActionBarContainer extends React.Component {
   }
 }
 
-ActionBarContainer.contextTypes = {
+//TODO: REFACTOR connect
+ActionBarContainer.contextTypes =
+{
   store: React.PropTypes.object,
 };

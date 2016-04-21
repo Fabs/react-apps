@@ -5,6 +5,7 @@ import moment from 'moment-timezone';
 import Players from '/imports/api/collections/players.js'
 import Transactions from '/imports/api/collections/transactions.js'
 
+//TODO: REFACTOR Organize
 Meteor.methods({
   'player.add_points': (name, type, amount) => {
     let user = Meteor.user();

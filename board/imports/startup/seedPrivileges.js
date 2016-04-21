@@ -6,4 +6,5 @@ const seedPrivileges = function(){
   Meteor.users.update(query, {$set: {'profile.status': 'admin'}});
 };
 
+//TODO: V3 Trigger without restart
 export { seedPrivileges };

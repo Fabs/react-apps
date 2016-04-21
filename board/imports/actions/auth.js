@@ -1,3 +1,4 @@
+//TODO: REFACTOR Login
 const doLogin = (user) => {
   return {
     type: 'LOGIN',
@@ -5,6 +6,7 @@ const doLogin = (user) => {
   }
 }
 
+//TODO: REFACTOR Logout
 const doLogout = () => {
   return {
     type: 'LOGOUT'
