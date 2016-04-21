@@ -22,6 +22,7 @@ const run = () => {
 
   store.subscribe(() =>{
     var state = store.getState();
+    console.info(state);
     render(
       <StoreContext store={ store }>
         <SegmentsLayout/>
