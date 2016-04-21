@@ -9,8 +9,10 @@ Meteor.publish('transactions',() =>{
   return Transactions.find();
 })
 
-Meteor.publish('users.moderation', function (uid) {
-  if(this.userId == uid && Meteor.users.find({status: 'admin', _id: uid}).count()){
+Meteor.publish('users.moderation', function () {
+  const isAdmin = Meteor.users.find({status: 'admin', _id: this.userId}).count() == 1;
+  if(isAdmin){
+    console.info('Admin in da haus!')
     return Meteor.users.find({status: {$exists: false}});
   }
   return this.ready();

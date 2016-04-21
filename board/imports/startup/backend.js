@@ -14,7 +14,7 @@ const connect = (store, userId) => {
     }
   });
 
-  let probationHandler = Meteor.subscribe('users.moderation', userId);
+  let probationHandler = Meteor.subscribe('users.moderation');
   store.autorun(function(dispatch){
     if(probationHandler.ready()){
       const users = Meteor.users.find().fetch();
