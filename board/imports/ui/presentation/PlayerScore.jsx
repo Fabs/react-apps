@@ -5,7 +5,7 @@ export default class PlayerScore extends React.Component {
     return (
       <tr>
         <td>
-          <i className="child icon"/>
+          <img className="ui tiny circular image" src={ "https://robohash.org/" + this.props.playerName }/>
           {this.props.playerName}
         </td>
         <td>{this.props.playerScore}</td>
