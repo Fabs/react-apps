@@ -2,10 +2,12 @@ import React from 'react';
 import moment from 'moment';
 
 export default class TransactionList extends React.Component {
+  //TODO: V3 Different messages
   formatDate(date){
     return moment(date._d).format("D [de] MMMM [às] hh:mm");
   }
 
+  //TODO: V3 Missing Icons
   iconFor(transaction){
     return {'coffee': 'coffee', 'bread': 'food', 'coffee/bread': 'coffee', 'joke': 'minus'}[transaction.type]
   }

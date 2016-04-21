@@ -24,6 +24,7 @@ export default class ModerationContainer extends React.Component {
   }
 }
 
+//TODO: REFACTOR connect
 ModerationContainer.contextTypes = {
   store: React.PropTypes.object,
   state: React.PropTypes.object,

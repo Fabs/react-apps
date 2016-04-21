@@ -15,6 +15,7 @@ export default class TransactionContainer extends React.Component {
   }
 }
 
+//TODO: REFACTOR connect
 TransactionContainer.contextTypes = {
   store: React.PropTypes.object,
   state: React.PropTypes.object,

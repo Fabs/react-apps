@@ -1,6 +1,7 @@
 import Players from '/imports/api/collections/players.js';
 import moment from 'moment';
 
+//TODO: NOTE last update
 const initialPlayers = [
   {name: 'barbara', legacy_points: 2-2},
   {name: 'felipe', legacy_points: 10+17-1+2},
@@ -24,4 +25,5 @@ const seedPlayers = function(){
   }
 }
 
+//TODO: V3 Trigger without restart
 export { seedPlayers };

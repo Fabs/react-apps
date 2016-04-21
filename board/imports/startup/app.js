@@ -18,8 +18,10 @@ const run = () => {
   const middlewares = applyMiddleware(thunk);
   const store = createStore(reducers, middlewares);
 
+  //TODO: IMPROVE Meteor integration
   store.autorun = (f) => Tracker.autorun(() => f(store.dispatch));
 
+  //TODO: REFACTOR subscribe pattern
   connect(store, Meteor.userId());
 
   store.subscribe(() =>{
