@@ -6,7 +6,7 @@ export default class TransactionList extends React.Component {
   //TODO: V3 Transalate icons
   //TODO: V3 Different messages
   formatDate(date){
-    return moment(date._d).format("D [de] MMMM [às] hh:mm");
+    return moment(date._d).format("D [de] MMMM [às] HH:mm");
   }
 
   renderTransactionConfirm(){
@@ -34,7 +34,7 @@ export default class TransactionList extends React.Component {
           <span>
             <b>{ transaction.owner }</b>
               { transaction.created_at ? ' em ' + this.formatDate(transaction.created_at): '' }
-              { this.props.future ? 'dará' : ' deu ' } <b>{ transaction.points } ponto(s)</b>
+              { this.props.future ? ' dará ' : ' deu ' } <b>{ transaction.points } ponto(s)</b>
               { ' por ' } <b>{ nameFor(transaction.type) }</b>
               { ' para '} <b><span style={{ color: 'green'}}>{ player }</span></b>
             </span>

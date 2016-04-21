@@ -25,12 +25,13 @@ export default class ActionBarContainer extends React.Component {
     const transaction = Object.assign({},this.props.scoring,{owner: 'Você', points: 1});
     return(
       <div className="ui segment relaxed divided list">
-        <TransactionItem key='0' transaction={transaction} onTransactionConfirm={this.confirmTransaction.bind(this)} onTransactionAbort={this.abortTransaction.bind(this)}/>
+        <TransactionItem key='0' transaction={transaction} onTransactionConfirm={this.confirmTransaction.bind(this)} onTransactionAbort={this.abortTransaction.bind(this)} future={true}/>
       </div>
     );
   }
 
   //TODO: REFACTOR give it its own component
+  //TODO: RESPONSIVE Layout button ugly break
   renderPlayerOptions(){
     return (
       <select onChange={this.selectPlayer.bind(this)} className="ui dropdown select fluid">
