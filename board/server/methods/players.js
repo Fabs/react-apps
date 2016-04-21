@@ -8,16 +8,19 @@ import Transactions from '/imports/api/collections/transactions.js'
 Meteor.methods({
   'player.add_points': (name, type, amount) => {
     let user = Meteor.user();
-    if (user || process.env.NODE_ENV === "development"){
+    if (user || process.env.NODE_ENV === "development") {
       let owner = 'O UNIVERSO'
-      if(user) {
+      if (user) {
         owner = user.profile.name
       }
 
       Transactions.insert({owner: owner, type: type, created_at: moment(), player: name, points: amount});
       let updateField = {};
       updateField[type] = 1;
-      Players.update({name}, {$inc: updateField });
+      Players.update({name}, {$inc: updateField});
     }
-  }
+  },
+  'approve.user': (uid) => {
+
+  },
 });
