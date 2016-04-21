@@ -17,12 +17,12 @@ export default class ScoreBoard extends React.Component {
       <table className="ui striped table">
         <thead>
           <tr>
-            <th className="ui uix greyAccent right aligned" colSpan="4">
+            <th className="ui uix greyAccent right aligned" colSpan="5">
               <ActionBarContainer {...this.props} />
             </th>
           </tr>
           <tr>
-            <th className="ui uix greyAccent">Maravilhoso Indivíduo</th>
+            <th className="ui uix greyAccent" colSpan="2">Maravilhoso Indivíduo</th>
             <th className="ui uix greyAccent">$ Lojinha</th>
             <th className="ui uix greyAccent">Categorias</th>
             <th className="ui uix greyAccent right aligned">Ganhos Total</th>
