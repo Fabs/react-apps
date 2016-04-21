@@ -6,6 +6,7 @@ import ModerationContainer from '../container/ModerationContainer.jsx';
 
 export default class SegmentsLayout extends React.Component {
   render() {
+    console.debug('RENDER',this);
     return (
       <div className="ui stackable container">
         <div className="ui menu header">

@@ -14,6 +14,7 @@ export default class AccountsUIWrapper extends Component {
   }
   
   render() {
+    console.debug('RENDER',this);
     return <span ref="containerLogin" />;
   }
 }

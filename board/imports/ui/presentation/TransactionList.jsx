@@ -11,6 +11,7 @@ export default class TransactionList extends React.Component {
   }
 
   render() {
+    console.debug('RENDER',this);
     return (
       <div className="ui segment relaxed divided list">
         {this.props.transactionList.map((transaction, i) => {

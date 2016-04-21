@@ -8,6 +8,7 @@ export default class TransactionContainer extends React.Component {
   }
 
   render() {
+    console.debug('RENDER',this);
     return (
       <TransactionList className='ui' transactionList={this.sortedData()}/>
     );
