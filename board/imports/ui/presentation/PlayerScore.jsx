@@ -14,7 +14,7 @@ export default class PlayerScore extends React.Component {
     return (
       <tr>
         <td>
-          <img className="ui tinyx circular image floated" src={ imageFor(this.props.name) }/>
+          <img className="ui tinyx rounded image floated" src={ imageFor(this.props.name) }/>
         </td>
         <td>
           {this.props.name[0].toUpperCase() + this.props.name.slice(1)}
