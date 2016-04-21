@@ -16,7 +16,7 @@ export default class ActionBarContainer extends React.Component {
   }
 
   abortTransaction(){
-    this.context.store.dispatch(scoreGrantCancel());
+    this.context.store.dispatch(scoreGrantFinish());
   }
 
   //TODO: REFACTOR give it its own component
@@ -47,7 +47,7 @@ export default class ActionBarContainer extends React.Component {
     return(
       <div>
         <button onClick={this.selectScoreMode.bind(this,'coffee')} className="ui green button">+<i className="ui icon coffee"/></button>
-        <button onClick={this.selectScoreMode.bind(this,'food')} className="ui green button">+<i className="ui icon food"/></button>
+        <button onClick={this.selectScoreMode.bind(this,'bread')} className="ui green button">+<i className="ui icon food"/></button>
         <button onClick={this.selectScoreMode.bind(this,'joke')} className="ui red button"><b><i className="ui uix icon frown fixThumbs"/></b></button>
         <button onClick={this.selectScoreMode.bind(this,'mess')} className="ui red button"><b><i className="ui uix icon minus"/></b></button>
       </div>

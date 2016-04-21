@@ -20,7 +20,7 @@ const seedPlayers = function(){
   if(Players.find().fetch() == 0){
     for(let i in initialPlayers){
       Transactions.insert({owner: "O UNIVERSO", type: 'coffee/bread', created_at: moment(), player: initialPlayers[i].name, points: initialPlayers[i].legacy_points });
-      Players.insert(Object.assign(initialPlayers[i],{jokes: 0, coffee: 0, bread:0}));
+      Players.insert(Object.assign(initialPlayers[i],{joke: 0, coffee: 0, bread:0}));
     }
   }
 }

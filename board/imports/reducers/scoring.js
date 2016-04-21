@@ -4,7 +4,8 @@ const scoring = (state = {step: 0}, action) => {
       return {step: 1};
     case 'SCORE_SET_TYPE':
       if(state.step == 1 || state.step == 2){
-        return Object.assign({},state,{step: 2, type: action.scoreType});
+        const step = action.scoreType === 'mess' ? 3 : 2;
+        return Object.assign({},state,{step: step, type: action.scoreType});
       }
       return state;
     case 'SCORE_SET_PLAYER':

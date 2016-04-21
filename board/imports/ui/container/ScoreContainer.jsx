@@ -4,7 +4,13 @@ import ScoreBoard from '../presentation/ScoreBoard.jsx';
 export default class ScoreContainer extends React.Component {
   sortedData() {
     var players = this.context.state.players;
-    return players.sort((a, b) => b.points - a.points);
+    return players.sort((a, b) => {
+      let total = b.total - a.total;
+      if(total == 0){
+        return a.jokes - b.jokes
+      }
+      return total
+    });
   }
 
   render() {
