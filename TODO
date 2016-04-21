@@ -1,12 +1,6 @@
 PASSOS:
 - Faz o admin
-- Curso React Redux
-- Faz backend em meteor
-- Publica no docker da aws
-- Arruma o domínio no dns
 - Compartilha com a galera da empresa
-- Faz a lojinha
-- Compartilha no github o novo boilerplate (do abramov + docker)
 - Faz o mesmo app em react native
 - Publica na Apple Store
 - Read watchkit
@@ -14,9 +8,11 @@ PASSOS:
 - Publish react-iwatch
 - Publish reac code
 
-DOCKER
-- rebuild base images
-
 NEXT:
-- Image instead of name
-- Moment Locale (moment from meteor?)
+- Admin
+- Actions
+- Remove Everybody points once
+- Revert player action
+- Bug quando atualiza pontos
+- Bug no timezone
+- Novo Layout
