@@ -9,7 +9,7 @@ const auth = (state = {}, action) => {
   }
 }
 
-const admin = (state = {}, action) => {
+const moderatables = (state = [], action) => {
   switch(action.type) {
     case 'FLUSH_MODERATION':
       return action.users;
@@ -18,4 +18,4 @@ const admin = (state = {}, action) => {
   }
 }
 
-export { auth, admin };
+export { auth, moderatables };
