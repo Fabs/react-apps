@@ -2,6 +2,7 @@ import React from 'react';
 
 export default class PlayerScore extends React.Component {
   render() {
+    console.debug('RENDER',this);
     return (
       <tr>
         <td>

@@ -12,6 +12,7 @@ export default class ScoreBoard extends React.Component {
   }
 
   render() {
+    console.debug('RENDER',this);
     return (
       <table className="ui striped table">
         <thead>

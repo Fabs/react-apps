@@ -8,6 +8,7 @@ export default class ScoreContainer extends React.Component {
   }
 
   render() {
+    console.debug('RENDER',this);
     return (
         <ScoreBoard className='ui' scoreList={this.sortedData()} {...this.context.state}/>
     );

@@ -47,6 +47,7 @@ export default class ActionBarContainer extends React.Component {
   }
 
   render() {
+    console.debug('RENDER',this);
     if (!this.props.auth.online) { return (<div></div>); }
     return(
       <div>
