@@ -6,7 +6,8 @@ export default class TransactionList extends React.Component {
   //TODO: V3 Transalate icons
   //TODO: V3 Different messages
   formatDate(date){
-    return moment(date._d).format("D [de] MMMM [às] HH:mm");
+    console.log(date);
+    return moment().format("D [de] MMMM [às] HH:mm");
   }
 
   renderTransactionConfirm(){
