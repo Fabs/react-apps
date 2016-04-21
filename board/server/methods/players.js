@@ -8,6 +8,7 @@ import Transactions from '/imports/api/collections/transactions.js'
 //TODO: REFACTOR Organize
 Meteor.methods({
   'player.add_points': (name, type, amount) => {
+    console.log(moment().toDate());
     let user = Meteor.user();
     if (user || process.env.NODE_ENV === "development") {
       let owner = 'O UNIVERSO'
@@ -15,7 +16,7 @@ Meteor.methods({
         owner = user.profile.name
       }
 
-      Transactions.insert({owner: owner, type: type, created_at: moment(), player: name, points: amount});
+      Transactions.insert({owner: owner, type: type, created_at: moment().toDate(), player: name, points: amount});
       let updateField = {};
       updateField[type] = 1;
       Players.update({name}, {$inc: updateField});
@@ -35,10 +36,10 @@ Meteor.methods({
       let updateField = {};
       updateField[type] = 1;
       if(type == 'mess'){
-        Transactions.insert({owner: owner, type: type, created_at: moment(), player: 'TODOS', points: amount});
+        Transactions.insert({owner: owner, type: type, created_at: moment().toDate(), player: 'TODOS', points: amount});
         Players.update({}, {$inc: updateField}, {multi: true});
       } else {
-        Transactions.insert({owner: owner, type: type, created_at: moment(), player: name, points: amount});
+        Transactions.insert({owner: owner, type: type, created_at: moment().toDate(), player: name, points: amount});
         Players.update({name}, {$inc: updateField});
       }
     }
