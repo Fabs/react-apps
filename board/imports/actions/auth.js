@@ -11,4 +11,11 @@ const doLogout = () => {
   }
 }
 
-export { doLogin, doLogout };
+const approve = (user) => {
+  return {
+    type: 'APPROVE_MODERATION',
+    user: user,
+  }
+}
+
+export { doLogin, doLogout, approve };

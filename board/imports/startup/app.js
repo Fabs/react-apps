@@ -11,8 +11,8 @@ import { transactions } from '/imports/reducers/transactions.js';
 import { auth, moderatables } from '/imports/reducers/auth.js';
 import { scoring } from '/imports/reducers/scoring.js';
 
-const run = () =>{
-  const reduceF = { players, transactions, auth, scoring , moderatables}
+const run = () => {
+  const reduceF = { players, transactions, auth, scoring , moderatables }
   const reducers = combineReducers(reduceF);
   const store = createStore(reducers);
   store.autorun = (f) => Tracker.autorun(() => f(store.dispatch));
