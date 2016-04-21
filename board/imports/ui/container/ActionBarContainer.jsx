@@ -1,7 +1,7 @@
 import React from 'react';
 import TransactionItem from '../presentation/TransactionItem.jsx';
 import { scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish } from '/imports/actions/scoring.js';
-import { iconFor, imageFor } from '/imports/ui/simbology.js'
+import { iconFor, imageFor, nameFor } from '/imports/ui/simbology.js'
 
 export default class ActionBarContainer extends React.Component {
   selectScoreMode(scoreType){
@@ -24,7 +24,7 @@ export default class ActionBarContainer extends React.Component {
   renderActionsWithConfirmation(){
     const transaction = Object.assign({},this.props.scoring,{owner: 'Você', points: 1});
     return(
-      <div>
+      <div className="ui segment relaxed divided list">
         <TransactionItem key='0' transaction={transaction} onTransactionConfirm={this.confirmTransaction.bind(this)} onTransactionAbort={this.abortTransaction.bind(this)}/>
       </div>
     );
@@ -33,7 +33,7 @@ export default class ActionBarContainer extends React.Component {
   //TODO: REFACTOR give it its own component
   renderPlayerOptions(){
     return (
-      <select onChange={this.selectPlayer.bind(this)} className="ui dropdown select">
+      <select onChange={this.selectPlayer.bind(this)} className="ui dropdown select fluid">
         <option value=''>Escolha alguém</option>
         {this.props.scoreList.map((player, i) => {
           return(
@@ -48,11 +48,19 @@ export default class ActionBarContainer extends React.Component {
     return(
       <div>
         {[['coffee','green'],['bread','green'],['joke','red'],['mess','red']].map((props, i) => {
-          return (<button key={i}
-            onClick={this.selectScoreMode.bind(this,props[0])}
-            className={`ui button ${props[1]}`} ><i className={`icon ${iconFor(props[0])}`}/>
-          </button>)
-        })}
+          return (
+            <div key={i}
+                 onClick={this.selectScoreMode.bind(this,props[0])}
+                 className="ui labeled button">
+              <div className={`ui button ${props[1]}`}>
+                <i className={`icon ${iconFor(props[0])}`}/> { nameFor(props[0])}
+              </div>
+              <a className={`ui basic ${props[1]} left pointing label`}>
+                {props[1] == 'red' ? -1 : 1}
+              </a>
+            </div>);
+          })
+        }
       </div>
     )
   }
@@ -66,7 +74,7 @@ export default class ActionBarContainer extends React.Component {
       case 3:
         return this.renderActionsWithConfirmation();
       default:
-        return (<span>Seu cadastro precisa ser aprovado para poder distribuir Pontos!</span>);
+        return (<span style={{color: 'red'}}>Seu cadastro precisa ser aprovado para poder distribuir Pontos!</span>);
     }
   }
 

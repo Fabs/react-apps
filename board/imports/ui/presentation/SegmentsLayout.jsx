@@ -5,6 +5,16 @@ import LoginBarContainer from '../container/LoginBarContainer.jsx';
 import ModerationContainer from '../container/ModerationContainer.jsx';
 
 export default class SegmentsLayout extends React.Component {
+  renderModerationPanel(){
+    if(this.context.state.auth.status != 'admin') {return '';}
+    return(
+      <div>
+        <h2 className="ui dividing header">Moderação</h2>
+        <ModerationContainer className='ui' />
+      </div>
+    );
+  }
+
   render() {
     console.debug('RENDER',this);
     return (
@@ -31,11 +41,16 @@ export default class SegmentsLayout extends React.Component {
             <h2 className="ui dividing header">Auditoria</h2>
             <TransactionsContainer className='ui' />
 
-            <h2 className="ui dividing header">Moderação</h2>
-            <ModerationContainer className='ui' />
+            {this.renderModerationPanel()}
           </div>
         </div>
       </div>
     );
   }
 }
+
+//TODO: REFACTOR connect
+SegmentsLayout.contextTypes = {
+  store: React.PropTypes.object,
+  state: React.PropTypes.object,
+};

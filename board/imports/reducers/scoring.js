@@ -1,7 +1,10 @@
 const scoring = (state = {step: 0}, action) => {
   switch(action.type) {
     case 'LOGIN':
-      return {step: 1};
+      if(action.user.profile.status != null){
+        return {step: 1};
+      }
+      return state;
     case 'SCORE_SET_TYPE':
       if(state.step == 1 || state.step == 2){
         const step = action.scoreType === 'mess' ? 3 : 2;

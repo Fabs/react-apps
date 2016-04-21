@@ -17,12 +17,12 @@ export default class PlayerScore extends React.Component {
           <img className="ui tiny circular image" src={ imageFor(this.props.name) }/>
           {this.props.name}
         </td>
-        <td>{this.pointsLabel(this,'balance')}</td>
-        <td>{this.pointsLabel(this,'coffee')}</td>
-        <td>{this.pointsLabel(this,'bread')}</td>
-        <td>{this.pointsLabel(this,'joke')}</td>
-        <td>{this.pointsLabel(this,'mess')}</td>
-        <td className="right aligned">{this.props.total}</td>
+        <td><h2>{this.pointsLabel(this,'balance')}</h2></td>
+        <td><h3>{this.pointsLabel(this,'coffee')}</h3></td>
+        <td><h3>{this.pointsLabel(this,'bread')}</h3></td>
+        <td><h3>{this.pointsLabel(this,'joke')}</h3></td>
+        <td><h3>{this.pointsLabel(this,'mess')}</h3></td>
+        <td className="right aligned"><h2>{this.props.total}</h2></td>
       </tr>
     )
   };
