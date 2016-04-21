@@ -1,6 +1,7 @@
 import React from 'react';
 import TransactionItem from '../presentation/TransactionItem.jsx';
-import { scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantCancel } from '/imports/actions/scoring.js';
+import { scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish } from '/imports/actions/scoring.js';
+import { iconFor, imageFor } from '/imports/ui/simbology.js'
 
 export default class ActionBarContainer extends React.Component {
   selectScoreMode(scoreType){
@@ -32,7 +33,7 @@ export default class ActionBarContainer extends React.Component {
   //TODO: REFACTOR give it its own component
   renderPlayerOptions(){
     return (
-      <select onChange={this.selectPlayer.bind(this)} className="ui uix select">
+      <select onChange={this.selectPlayer.bind(this)} className="ui dropdown select">
         <option value=''>Escolha alguém</option>
         {this.props.scoreList.map((player, i) => {
           return(
@@ -46,10 +47,12 @@ export default class ActionBarContainer extends React.Component {
   renderActions(){
     return(
       <div>
-        <button onClick={this.selectScoreMode.bind(this,'coffee')} className="ui green button">+<i className="ui icon coffee"/></button>
-        <button onClick={this.selectScoreMode.bind(this,'bread')} className="ui green button">+<i className="ui icon food"/></button>
-        <button onClick={this.selectScoreMode.bind(this,'joke')} className="ui red button"><b><i className="ui uix icon frown fixThumbs"/></b></button>
-        <button onClick={this.selectScoreMode.bind(this,'mess')} className="ui red button"><b><i className="ui uix icon minus"/></b></button>
+        {[['coffee','green'],['bread','green'],['joke','red'],['mess','red']].map((props, i) => {
+          return (<button key={i}
+            onClick={this.selectScoreMode.bind(this,props[0])}
+            className={`ui button ${props[1]}`} ><i className={`icon ${iconFor(props[0])}`}/>
+          </button>)
+        })}
       </div>
     )
   }
