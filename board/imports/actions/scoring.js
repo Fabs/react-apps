@@ -12,17 +12,20 @@ const scoreSetPlayer = (player) => {
   }
 }
 
-const scoreGrant = () => {
-  return {
-    type: 'SCORE_GRANT_CONFIRM',
+const scoreGrant = (options) => {
+  return function(dispatch){
+    Meteor.call('player.grant_points',options, (error, result) =>{
+      if(!error){
+        dispatch(scoreGrantFinish());
+      }
+    });
   }
 }
 
-const scoreGrantCancel = (user) => {
+const scoreGrantFinish = () => {
   return {
-    type: 'SCORE_GRANT_CANCEL',
-    user: user,
+    type: 'SCORE_GRANT_FINISH',
   }
 }
 
-export { scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantCancel };
+export { scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish };

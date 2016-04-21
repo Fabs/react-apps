@@ -12,9 +12,8 @@ const doLogout = () => {
 }
 
 const approve = (user) => {
-  return {
-    type: 'APPROVE_MODERATION',
-    user: user,
+  return function(dispatch){
+    Meteor.call('approve.user', user);
   }
 }
 

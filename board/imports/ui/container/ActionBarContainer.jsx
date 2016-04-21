@@ -12,7 +12,7 @@ export default class ActionBarContainer extends React.Component {
   }
 
   confirmTransaction(){
-    this.context.store.dispatch(scoreGrant());
+    this.context.store.dispatch(scoreGrant(this.props.scoring));
   }
 
   abortTransaction(){

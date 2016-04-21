@@ -23,3 +23,5 @@ V3:
 - Usar o connect
 - Criar o remote_subscribe -> remote_subscribe('add.user')
 - Criar o remote_action -> remote_action('add.user') ADD_USER
+- Two Tier Methods (Meteor)
+- Tests

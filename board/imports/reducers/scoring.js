@@ -12,7 +12,7 @@ const scoring = (state = {step: 0}, action) => {
         return Object.assign({},state,{step: 3, player: action.player});
       }
       return state;
-    case 'SCORE_GRANT_CANCEL':
+    case 'SCORE_GRANT_FINISH':
       return {step: 1};
     default:
       return state;
