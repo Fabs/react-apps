@@ -16,6 +16,7 @@ const run = () => {
   const reducers = combineReducers(reduceF);
   const store = createStore(reducers);
   store.autorun = (f) => Tracker.autorun(() => f(store.dispatch));
+  store.remoteDispatch = (...args) => Meteor.call(...args);
 
   connect(store, Meteor.userId());
 
