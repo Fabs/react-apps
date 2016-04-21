@@ -17,7 +17,7 @@ const connect = (store, userId) => {
   let probationHandler = Meteor.subscribe('users.moderation');
   store.autorun(function(dispatch){
     if(probationHandler.ready()){
-      const users = Meteor.users.find().fetch();
+      const users = Meteor.users.find({_id: {$ne: Meteor.userId()}}).fetch();
       console.log(`------ Users Update '${users.length}'`);
       dispatch(flushModeration(users));
     }
@@ -33,9 +33,9 @@ const connect = (store, userId) => {
   });
 
   store.autorun(function(dispatch){
-    let user = Meteor.userId();
+    let user = Meteor.user();
     if(user != null){
-      console.log(`------ Login`);
+      console.log(`------ Login ${Meteor.user()._id}`);
       dispatch(doLogin(user));
     } else {
       console.log(`------ Logout`);

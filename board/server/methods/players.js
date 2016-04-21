@@ -21,6 +21,10 @@ Meteor.methods({
     }
   },
   'approve.user': (uid) => {
-
+    let user = Meteor.user();
+    if(user.profile.status == 'admin'){
+      console.log(`Admin approval ${uid}`);
+      Meteor.users.update({_id: uid}, {$set: {'profile.status': 'user'}});
+    }
   },
 });

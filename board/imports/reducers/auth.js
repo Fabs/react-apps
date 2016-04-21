@@ -1,9 +1,9 @@
 const auth = (state = {}, action) => {
   switch(action.type) {
     case 'LOGIN':
-      return {user: action.user, online: true}
+      return {user: action.user._id, online: true, status: action.user.status}
     case 'LOGOUT':
-      return {lastUser: state.user, online: false}
+      return {lastUser: state.user, online: false, status: ''}
     default:
       return state;
   }
