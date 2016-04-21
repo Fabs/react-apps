@@ -1,23 +1,40 @@
 import React from 'react';
+import TransactionItem from '../presentation/TransactionItem.jsx';
+import { scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantCancel } from '/imports/actions/scoring.js';
 
 export default class ActionBarContainer extends React.Component {
-  selectScoreMode(){
+  selectScoreMode(scoreType){
+    this.context.store.dispatch(scoreSetType(scoreType));
   }
 
-  selectPlayer(){
+  selectPlayer(e){
+    this.context.store.dispatch(scoreSetPlayer(e.target.value));
+  }
+
+  confirmTransaction(){
+    this.context.store.dispatch(scoreGrant());
+  }
+
+  abortTransaction(){
+    this.context.store.dispatch(scoreGrantCancel());
   }
 
   renderActionsWithConfirmation(){
-    return(<div></div>);
+    const transaction = Object.assign({},this.props.scoring,{owner: 'Você', points: 1});
+    return(
+      <div>
+        <TransactionItem key='0' transaction={transaction} onTransactionConfirm={this.confirmTransaction.bind(this)} onTransactionAbort={this.abortTransaction.bind(this)}/>
+      </div>
+    );
   }
 
   renderPlayerOptions(){
     return (
-      <select className="ui uix select">
+      <select onChange={this.selectPlayer.bind(this)} className="ui uix select">
         <option value=''>Escolha alguém</option>
         {this.props.scoreList.map((player, i) => {
           return(
-            <option key={i} value={i}>{player.name}</option>
+            <option key={i} value={player.name} >{player.name}</option>
           )})}
       </select>
     );
@@ -26,9 +43,10 @@ export default class ActionBarContainer extends React.Component {
   renderActions(){
     return(
       <div>
-        <button className="ui green button">+<i className="ui icon coffee"/></button>
-        <button className="ui green button">+<i className="ui icon food"/></button>
-        <button className="ui red button"><b><i className="ui icon minus"/><i className="ui uix icon frown fixThumbs"/></b></button>
+        <button onClick={this.selectScoreMode.bind(this,'coffee')} className="ui green button">+<i className="ui icon coffee"/></button>
+        <button onClick={this.selectScoreMode.bind(this,'food')} className="ui green button">+<i className="ui icon food"/></button>
+        <button onClick={this.selectScoreMode.bind(this,'joke')} className="ui red button"><b><i className="ui uix icon frown fixThumbs"/></b></button>
+        <button onClick={this.selectScoreMode.bind(this,'mess')} className="ui red button"><b><i className="ui uix icon minus"/></b></button>
       </div>
     )
   }
@@ -56,3 +74,7 @@ export default class ActionBarContainer extends React.Component {
     );
   }
 }
+
+ActionBarContainer.contextTypes = {
+  store: React.PropTypes.object,
+};
