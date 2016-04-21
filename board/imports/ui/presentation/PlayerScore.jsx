@@ -14,8 +14,10 @@ export default class PlayerScore extends React.Component {
     return (
       <tr>
         <td>
-          <img className="ui tiny circular image" src={ imageFor(this.props.name) }/>
-          {this.props.name}
+          <img className="ui tinyx circular image floated" src={ imageFor(this.props.name) }/>
+        </td>
+        <td>
+          {this.props.name[0].toUpperCase() + this.props.name.slice(1)}
         </td>
         <td><h2>{this.pointsLabel(this,'balance')}</h2></td>
         <td><h3>

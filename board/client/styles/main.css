@@ -7,3 +7,7 @@ body {
     background-color: #eee;
     color: #111;
 }
+
+.ui.tinyx.image{
+    width: 50px;
+}

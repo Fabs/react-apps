@@ -5,6 +5,7 @@ Meteor.publish('players',() =>{
   return Players.find();
 })
 
+//TODO REFACTOR: This will soon be TOOO BIG
 Meteor.publish('transactions',() =>{
   return Transactions.find();
 })
