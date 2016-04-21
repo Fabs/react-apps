@@ -6,7 +6,7 @@ export default class ScoreBoard extends React.Component {
   renderPlayers(){
     return this.props.scoreList.map((player) => {
       return(
-        <PlayerScore key={player._id} playerName={player.name} playerScore={player.points} playerBalance={player.points} />
+        <PlayerScore key={player._id} {...player}/>
       )
     });
   }
@@ -17,14 +17,18 @@ export default class ScoreBoard extends React.Component {
       <table className="ui striped table">
         <thead>
           <tr>
-            <th className="ui uix greyAccent right aligned" colSpan="3">
+            <th className="ui uix greyAccent right aligned" colSpan="8">
               <ActionBarContainer {...this.props} />
             </th>
           </tr>
           <tr>
             <th className="ui uix greyAccent">Maravilhoso Indivíduo</th>
-            <th className="ui uix greyAccent">Credito na Lojinha</th>
-            <th className="ui uix greyAccent right aligned">Pontos Totais</th>
+            <th className="ui uix greyAccent">$ Lojinha</th>
+            <th className="ui uix greyAccent">Café</th>
+            <th className="ui uix greyAccent">Pão</th>
+            <th className="ui uix greyAccent">Piadas :(</th>
+            <th className="ui uix greyAccent">Bagunça</th>
+            <th className="ui uix greyAccent right aligned">Ganhos Total</th>
           </tr>
         </thead>
         <tbody>

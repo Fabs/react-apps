@@ -2,8 +2,11 @@ const players = (state = [], action) => {
   switch(action.type) {
       case 'FLUSH_PLAYERS':
         let players = action.players.map((player) => {
-          let points = (player.legacy_points || 0) + (player.coffee || 0) + (player.bread || 0);
-          return Object.assign({} ,player ,{ points });
+          let coffee = (player.legacy_points || 0) + (player.coffee || 0);
+          let total =  coffee + (player.bread || 0);
+          let balance = total - (player.mess || 0);
+          let joke = (player.joke || 0);
+          return Object.assign({} ,player ,{ total, coffee, balance });
         });
         return players;
       default:

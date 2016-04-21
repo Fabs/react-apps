@@ -32,10 +32,15 @@ Meteor.methods({
         owner = user.profile.name
       }
 
-      Transactions.insert({owner: owner, type: type, created_at: moment(), player: name, points: amount});
       let updateField = {};
       updateField[type] = 1;
-      Players.update({name}, {$inc: updateField});
+      if(type == 'mess'){
+        Transactions.insert({owner: owner, type: type, created_at: moment(), player: 'TODOS', points: amount});
+        Players.update({}, {$inc: updateField}, {multi: true});
+      } else {
+        Transactions.insert({owner: owner, type: type, created_at: moment(), player: name, points: amount});
+        Players.update({name}, {$inc: updateField});
+      }
     }
   },
   'approve.user': (uid) => {
