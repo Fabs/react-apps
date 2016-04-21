@@ -1,10 +1,19 @@
-const iconFor = function(string){
+const iconFor = function(key){
   //TODO: REFACTOR hash keys
-  return {'mess': 'trash outline', 'coffee': 'coffee', 'bread': 'food', 'coffee/bread': 'coffee', 'joke': 'frown', 'food': 'food', 'balance': 'money'}[string]
+  return {'mess': 'trash outline', 'coffee': 'coffee', 'bread': 'food', 'coffee/bread': 'coffee', 'joke': 'frown', 'food': 'food', 'balance': 'money'}[key]
 }
 
-const imageFor = function(string){
-  return "https://robohash.org/" + string;
+const imageFor = function(key){
+  return "https://robohash.org/" + key;
 }
 
-export { iconFor, imageFor };
+const nameFor = function(key){
+  return {
+    'coffee': 'Café',
+    'joke': 'Piada',
+    'mess': 'Bagunça',
+    'bread': 'Pão',
+    'coffee/bread': 'Pão/Café',
+  }[key]
+}
+export { iconFor, imageFor, nameFor };

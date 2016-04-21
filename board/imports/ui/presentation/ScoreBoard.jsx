@@ -24,10 +24,7 @@ export default class ScoreBoard extends React.Component {
           <tr>
             <th className="ui uix greyAccent">Maravilhoso Indivíduo</th>
             <th className="ui uix greyAccent">$ Lojinha</th>
-            <th className="ui uix greyAccent">Café</th>
-            <th className="ui uix greyAccent">Pão</th>
-            <th className="ui uix greyAccent">Piadas :(</th>
-            <th className="ui uix greyAccent">Bagunça</th>
+            <th className="ui uix greyAccent" colSpan="4">Categorias</th>
             <th className="ui uix greyAccent right aligned">Ganhos Total</th>
           </tr>
         </thead>
