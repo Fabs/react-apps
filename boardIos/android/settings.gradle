@@ -1,0 +1,3 @@
+rootProject.name = 'boardIos'
+
+include ':app'
