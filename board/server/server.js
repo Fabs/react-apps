@@ -8,4 +8,6 @@ Meteor.startup(function () {
   seedPrivileges();
 });
 
+console.log('SERVER: v0.0.3');
+
 //TODO: Tests Meteor

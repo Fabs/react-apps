@@ -7,5 +7,6 @@ import { run } from '/imports/startup/app.js'
 //TODO: Tests React
 Meteor.startup(() =>{
   moment.locale('pt-br');
+  console.log('CLIENT: v0.0.3');
   run();
 })
