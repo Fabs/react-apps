@@ -1,6 +1,8 @@
 const iconFor = function(key){
   //TODO: REFACTOR hash keys
-  return {'mess': 'trash outline', 'coffee': 'coffee', 'bread': 'food', 'coffee/bread': 'coffee', 'joke': 'frown', 'food': 'food', 'balance': 'money'}[key]
+  return {'mess': 'trash outline', 'coffee': 'coffee', 'bread': 'food',
+    'coffee/bread': 'coffee', 'joke': 'frown', 'food': 'food',
+    'balance': 'money', 'used': 'money'}[key]
 }
 
 const imageFor = function(key){

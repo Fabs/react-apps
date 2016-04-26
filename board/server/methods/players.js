@@ -5,7 +5,7 @@ import moment from 'moment-timezone';
 import Players from '/imports/api/collections/players.js'
 import Transactions from '/imports/api/collections/transactions.js'
 
-//TODO: REFACTOR Organize
+//TODO: REFACTOR Organize - Two tier methods
 Meteor.methods({
   'player.add_points': (name, type, amount) => {
     console.log(moment().toDate());
@@ -51,4 +51,13 @@ Meteor.methods({
       Meteor.users.update({_id: uid}, {$set: {'profile.status': 'user'}});
     }
   },
+  'player.expend': (name, amount) => {
+    let user = Meteor.user();
+    if(user.profile.status == 'admin'){
+      let owner = user.profile.name;
+      let type = 'used';
+      Transactions.insert({owner: owner, type: type, created_at: moment().toDate(), player: name, points: amount});
+      Players.update({name}, {$inc: type});
+    }
+  }
 });
