@@ -5,51 +5,55 @@ import LoginBarContainer from '../container/LoginBarContainer.jsx';
 import ModerationContainer from '../container/ModerationContainer.jsx';
 
 export default class SegmentsLayout extends React.Component {
-  renderModerationPanel(){
-    if(this.context.state.auth.status != 'admin') {return '';}
-    return(
+  renderModerationPanel() {
+    if (this.context.state.auth.status !== 'admin') {
+      return '';
+    }
+    return (
       <div>
         <h2 className="ui dividing header">Moderação</h2>
-        <ModerationContainer className='ui' />
+        <ModerationContainer className="ui" />
       </div>
     );
   }
 
   render() {
-    console.debug('RENDER',this);
+    console.debug('RENDER', this);
     return (
-      <div>
-        <div className="column row">
-          <div className="ui menu header">
+      <div className="l-container">
+        <header className="l-header">
+          <div className="brand">
+
             <span className="ui uix greyAccent item">
               <i className="ui icon coffee"/> + <i className="ui icon heart"/> = <i className="ui icon smile"/>
             </span>
             <LoginBarContainer className="ui item right floated"/>
-          </div>
-        </div>
-        <br/>
-        <div className="ui two column stackable grid">
-          <div className="column ten wide">
-            <h2 className="ui dividing header">Pontos</h2>
-            <ScoreContainer className='ui' />
 
+          </div>
+        </header>
+        <div className="l-body">
+          <main className="l-content">
+
+            <h2 className="ui dividing header">Pontos</h2>
+            <ScoreContainer className="ui" />
             <h2 className="ui dividing header">Links</h2>
             <a href="https://loja.reativo.com/" target="_blank">Acesso a loja</a>
-          </div>
 
-          <div className="column six wide">
+          </main>
+          <aside className="l-sidebar">
+
             <h2 className="ui dividing header">Auditoria</h2>
-            <TransactionsContainer className='ui' />
-
+            <TransactionsContainer className="ui" />
             {this.renderModerationPanel()}
-          </div>
+
+          </aside>
         </div>
       </div>
     );
   }
 }
 
-//TODO: REFACTOR connect
+// TODO: REFACTOR connect
 SegmentsLayout.contextTypes = {
   store: React.PropTypes.object,
   state: React.PropTypes.object,

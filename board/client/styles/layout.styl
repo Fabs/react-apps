@@ -1,0 +1,37 @@
+brand-color = #402940
+
+.l-container, .l-body
+  display: flex
+  flex-direction: column
+
+.l-header
+  background-color: brand-color
+  width: 100vw
+
+.l-content
+  flex: 1
+  background-color: blue
+
+.l-sidebar
+  flex: 0 0 20em
+  display: none
+  background-color: green
+
+
+.l-body
+  width: 100vw
+
+
+@media (min-width: 768px)
+  .l-body
+    flex-direction: row
+    flex: 1
+
+  .l-content
+    flex: 1
+    background-color: blue
+
+  .l-sidebar
+    flex: 0 0 20em
+    display: block
+    background-color: green

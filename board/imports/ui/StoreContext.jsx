@@ -1,6 +1,6 @@
 import React from 'react';
 
-//TODO: REFACTOR use <Provider>
+// TODO: REFACTOR use <Provider>
 export default class StoreContext extends React.Component {
   getChildContext() {
     return {store: this.props.store, state: this.props.store.getState()};
@@ -13,6 +13,5 @@ export default class StoreContext extends React.Component {
 
 StoreContext.childContextTypes = {
   store: React.PropTypes.object,
-  state: React.PropTypes.object
-}
-
+  state: React.PropTypes.object,
+};

@@ -20,6 +20,7 @@ semantic:ui-css
 blaze-html-templates
 simple:rest
 meteortoys:allthings
-accounts-ui
 accounts-facebook
 meteorhacks:kadira
+stylus
+accounts-ui-unstyled
