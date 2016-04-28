@@ -1,11 +1,8 @@
-brand-color = #402940
-
 .l-container, .l-body
   display: flex
   flex-direction: column
 
 .l-header
-  background-color: brand-color
   width: 100vw
 
 .l-content
@@ -17,6 +14,8 @@ brand-color = #402940
   display: none
   background-color: green
 
+//.l-sidebar-shown
+//.l-sidebar-control
 
 .l-body
   width: 100vw
@@ -29,9 +28,12 @@ brand-color = #402940
 
   .l-content
     flex: 1
-    background-color: blue
+    background-color: yellow
 
   .l-sidebar
     flex: 0 0 20em
     display: block
-    background-color: green
+    background-color: orange
+
+  .l-sidebar-control
+    display: none
