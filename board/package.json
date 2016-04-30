@@ -21,7 +21,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "plugin:shopify/esnext"
+      "plugin:shopify/react"
     ],
     "env": {
       "meteor": true,
@@ -29,13 +29,23 @@
     },
     "rules": {
       "no-warning-comments": "off",
-      "no-console": "off"
-    }
+      "no-console": "off",
+      "jsx-a11y/img-uses-alt": "off",
+      "jsx-a11y/label-uses-for": "off",
+      "jsx-a11y/mouse-events-map-to-key-events": "off",
+      "jsx-a11y/no-hash-href": "off",
+      "jsx-a11y/redundant-alt": "off",
+      "jsx-a11y/valid-aria-role": "off"
+    },
+    "plugins": [
+      "jsx-a11y"
+    ]
   },
   "devDependencies": {
     "eslint": "^2.9.0",
     "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-import": "^1.6.1",
+    "eslint-plugin-jsx-a11y": "^1.0.4",
     "eslint-plugin-shopify": "^11.1.2",
     "eslint-plugin-sort-class-members": "^1.0.1"
   }

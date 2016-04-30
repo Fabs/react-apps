@@ -5,7 +5,7 @@ export default class LoginBarContainer extends React.Component {
   render() {
     console.debug('RENDER',this);
     return (
-      <div className={this.props.className}>
+      <div className="loginBar">
         <AccountsUIWrapper />
       </div>
     );
