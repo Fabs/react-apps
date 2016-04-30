@@ -1,31 +1,31 @@
-const scoreSetType = (scoreType) => {
+function scoreSetType(scoreType) {
   return {
     type: 'SCORE_SET_TYPE',
-    scoreType
-  }
+    scoreType,
+  };
 }
 
-const scoreSetPlayer = (player) => {
+function scoreSetPlayer(player) {
   return {
     type: 'SCORE_SET_PLAYER',
-    player
-  }
+    player,
+  };
 }
 
-const scoreGrant = (options) => {
-  return function(dispatch){
-    Meteor.call('player.grant_points',options, (error, result) =>{
-      if(!error){
+function scoreGrant(options) {
+  return function(dispatch) {
+    Meteor.call('player.grant_points', options, (error) => {
+      if (!error) {
         dispatch(scoreGrantFinish());
       }
     });
-  }
+  };
 }
 
-const scoreGrantFinish = () => {
+function scoreGrantFinish() {
   return {
     type: 'SCORE_GRANT_FINISH',
-  }
+  };
 }
 
-export { scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish };
+export {scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish};

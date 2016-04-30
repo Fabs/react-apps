@@ -1,22 +1,22 @@
-const flushPlayers = (players) => {
+function flushPlayers(players) {
   return {
     type: 'FLUSH_PLAYERS',
-    players
-  }
+    players,
+  };
 }
 
-const flushTransactions = (transactions) => {
+function flushTransactions(transactions) {
   return {
     type: 'FLUSH_TRANSACTIONS',
-    transactions
-  }
+    transactions,
+  };
 }
 
-const flushModeration = (users) => {
+function flushModeration(users) {
   return {
     type: 'FLUSH_MODERATION',
-    users
-  }
+    users,
+  };
 }
 
-export { flushPlayers, flushTransactions, flushModeration };
+export {flushPlayers, flushTransactions, flushModeration};

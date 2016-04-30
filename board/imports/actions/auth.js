@@ -1,22 +1,22 @@
-//TODO: REFACTOR Login
-const doLogin = (user) => {
+// TODO: REFACTOR Login
+function doLogin(user) {
   return {
     type: 'LOGIN',
-    user
-  }
+    user,
+  };
 }
 
-//TODO: REFACTOR Logout
-const doLogout = () => {
+// TODO: REFACTOR Logout
+function doLogout() {
   return {
-    type: 'LOGOUT'
-  }
+    type: 'LOGOUT',
+  };
 }
 
-const approve = (user) => {
-  return function(dispatch){
+function approve(user) {
+  return function() {
     Meteor.call('approve.user', user);
-  }
+  };
 }
 
-export { doLogin, doLogout, approve };
+export {doLogin, doLogout, approve};
