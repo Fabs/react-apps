@@ -57,7 +57,7 @@ Meteor.methods({
       let owner = user.profile.name;
       let type = 'used';
       Transactions.insert({owner: owner, type: type, created_at: moment().toDate(), player: name, points: amount});
-      Players.update({name}, {$inc: type});
+      Players.update({name}, {$inc: {used: amount}});
     }
   }
 });
