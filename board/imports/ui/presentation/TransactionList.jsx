@@ -1,17 +1,30 @@
 import React from 'react';
-import TransactionItem from './TransactionItem.jsx'
+import TransactionItem from './TransactionItem.jsx';
 
 export default class TransactionList extends React.Component {
-  render() {
-    console.debug('RENDER',this);
+  renderTransaction(transaction) {
     return (
-      <div className="ui segment relaxed divided list">
-        {this.props.transactionList.map((transaction, i) => {
-          return(
-            <TransactionItem key={transaction._id} transaction={transaction} />
-          )
-        })}
+      <TransactionItem key={transaction._id} transaction={transaction} />
+    );
+  }
+
+  renderTransactions() {
+    return this.props.transactionList.map(this.renderTransaction);
+  }
+
+  render() {
+    console.debug('RENDER', this);
+    return (
+      <div className="timeline">
+        <h2 className="title">Auditoria</h2>
+        <div className="list">
+          {this.renderTransactions()}
+        </div>
       </div>
     );
   }
 }
+
+TransactionList.propTypes = {
+  transactionList: React.PropTypes.arrayOf(React.PropTypes.object),
+};
