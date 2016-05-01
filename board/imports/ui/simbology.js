@@ -53,8 +53,13 @@ function nameFor(key) {
   }
 }
 
-function imageFor(key) {
-  return `http://difrbch1wo7lp.cloudfront.net/images/player/${key}.png`;
+function imageFor(key, active=true) {
+  const base = 'http://difrbch1wo7lp.cloudfront.net/images/player/';
+  let grey = '';
+  if (!active) {
+    grey = '_grey';
+  }
+  return `http://difrbch1wo7lp.cloudfront.net/images/player/${key}${grey}.png`;
 }
 
 export {iconFor, imageFor, nameFor};

@@ -28,4 +28,10 @@ function scoreGrantFinish() {
   };
 }
 
-export {scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish};
+function scoreSetActing() {
+  return {
+    type: 'SCORE_SET_ACTING',
+  };
+}
+
+export {scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish, scoreSetActing};

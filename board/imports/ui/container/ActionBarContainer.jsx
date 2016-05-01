@@ -1,7 +1,10 @@
 import React from 'react';
-import TransactionItem from '../presentation/TransactionItem.jsx';
-import {scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish} from '../../actions/scoring.js';
-import {iconFor, imageFor, nameFor} from '../../actions/simbology.js';
+import ActionBarActions from '../presentation/ActionBarActions.jsx';
+import ActionBarBegin from '../presentation/ActionBarBegin.jsx';
+import ActionBarPlayers from '../presentation/ActionBarPlayers.jsx';
+import ActionBarConfirmation from '../presentation/ActionBarConfirmation.jsx';
+import {scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish, scoreSetActing} from '../../actions/scoring.js';
+import {iconFor, imageFor, nameFor} from '../simbology.js';
 
 export default class ActionBarContainer extends React.Component {
   selectScoreMode(scoreType) {
@@ -20,81 +23,49 @@ export default class ActionBarContainer extends React.Component {
     this.context.store.dispatch(scoreGrantFinish());
   }
 
-  // TODO: REFACTOR give it its own component
-  renderActionsWithConfirmation() {
-    const transaction = Object.assign({},
-      this.props.scoring,
-      {owner: 'Você', points: 1});
-
-    return (
-      <div className="ui segment relaxed divided list">
-        <TransactionItem
-          key='0'
-          transaction={transaction}
-          onTransactionConfirm={this.confirmTransaction.bind(this)}
-          onTransactionAbort={this.abortTransaction.bind(this)}
-          future={true}
-        />
-      </div>
-    );
+  toggleAction() {
+    const step = this.props.scoring.step;
+    if (step === 1) {
+      this.context.store.dispatch(scoreSetActing());
+    } else {
+      this.context.store.dispatch(scoreGrantFinish());
+    }
   }
 
-  // TODO: REFACTOR give it its own component
-  // TODO: RESPONSIVE Layout button ugly break
-  renderPlayerOptions() {
-    return (
-      <select
-        onChange={this.selectPlayer.bind(this)}
-        className="ui dropdown select fluid"
-      >
-
-        <option value="">Escolha alguém</option>
-
-        {this.props.scoreList.map((player, i) => {
-          return (
-            <option key={i} value={player.name} >{player.name}</option>
-          )})}
-
-      </select>
-    );
+  renderControl(step) {
+    console.log(step);
+    if (step === 0) {
+      return <div style={{height: '16px'}}></div>;
+    } else {
+      return (
+        <ActionBarBegin
+          active={this.props.scoring.step === 1}
+          onClick={this.toggleAction.bind(this)}
+        />);
+    }
   }
 
-  // TODO: REFACTOR give it its own component
-  renderActions() {
-    const options = [['coffee', 'green'], ['bread', 'green'], ['joke', 'red'],
-      ['mess', 'red']];
-    return (
-      <div>
-        {options.map((props, i) => {
-          return (
-            <div
-              key={i}
-              onClick={this.selectScoreMode.bind(this, props[0])}
-              className="ui labeled button"
-            >
-              <div className={`ui button ${props[1]}`}>
-                <i className={`icon ${iconFor(props[0])}`} />
-                {nameFor(props[0])}
-              </div>
-              <a className={`ui basic ${props[1]} left pointing label`}>
-                {props[1] === 'red' ? -1 : 1}
-              </a>
-            </div>);
-        })}
-      </div>
-    );
-  }
-
-  renderStep() {
-    switch(this.props.scoring.step) {
+  renderStep(step) {
+    switch (step) {
     case 1:
-      return this.renderActions();
+      return '';
     case 2:
-      return this.renderPlayerOptions();
+      const options = [['coffee', 'green'], ['bread', 'green'], ['joke', 'red'],
+        ['mess', 'red']];
+
+      return(<div>
+        <ActionBarPlayers players={this.props.players} />
+        <ActionBarActions />
+      </div>);
     case 3:
-      return this.renderActionsWithConfirmation();
+      const transaction = Object.assign({},
+        this.props.scoring,
+        {owner: 'Você', points: 1});
+      return <ActionBarConfirmation transaction={transaction} />;
     default:
-      return (<span style={{color: 'red'}}>Seu cadastro precisa ser aprovado para poder distribuir Pontos!</span>);
+      return (<span style={{color: 'red'}}>
+          Seu cadastro precisa ser aprovado para poder distribuir Pontos!
+      </span>);
     }
   }
 
@@ -102,9 +73,13 @@ export default class ActionBarContainer extends React.Component {
   render() {
     console.debug('RENDER', this);
     if (!this.props.auth.online) {return (<div></div>);}
+
     return (
       <div className="actionBar">
-        {this.renderStep()}
+        {this.renderControl(this.props.scoring.step)}
+        <div className="actionArea">
+          {this.renderStep(this.props.scoring.step)}
+        </div>
       </div>
     );
   }
@@ -113,6 +88,7 @@ export default class ActionBarContainer extends React.Component {
 // TODO: REFACTOR connect
 ActionBarContainer.contextTypes = {
   store: React.PropTypes.object,
+  state: React.PropTypes.object,
 };
 
 ActionBarContainer.propTypes = {
