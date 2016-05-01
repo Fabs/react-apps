@@ -3,28 +3,32 @@ import ScoreBoard from '../presentation/ScoreBoard.jsx';
 
 export default class ScoreContainer extends React.Component {
   sortedData() {
-    var players = this.context.state.players;
-    return players.sort((a, b) => {
-      let total = b.total - a.total;
-      if(total == 0){
-        return a.jokes - b.jokes
+    const players = this.context.state.players;
+    return players.sort((player1, player2) => {
+      const total = player1.total - player2.total;
+      if (total === 0) {
+        return player1.jokes - player2.jokes;
       }
-      return total
+      return total;
     });
   }
 
   render() {
-    console.debug('RENDER',this);
+    console.debug('RENDER', this);
     return (
       <div>
         <h3 className="title">PONTOS</h3>
-        <ScoreBoard className='ui' scoreList={this.sortedData()} {...this.context.state}/>
+        <ScoreBoard
+          className="ui"
+          scoreList={this.sortedData()}
+          {...this.context.state}
+        />
       </div>
     );
   }
 }
 
-//TODO: REFACTOR connect
+// TODO: REFACTOR connect
 ScoreContainer.contextTypes = {
   store: React.PropTypes.object,
   state: React.PropTypes.object,

@@ -5,6 +5,7 @@ import ModerationContainer from '../container/ModerationContainer.jsx';
 import Brand from '../presentation/Brand.jsx';
 
 export default class SegmentsLayout extends React.Component {
+  // TODO: Do something about it
   renderModerationPanel() {
     if (this.context.state.auth.status !== 'admin') {
       return '';
@@ -26,11 +27,10 @@ export default class SegmentsLayout extends React.Component {
         </header>
         <div className="l-body">
           <main className="l-content">
-            <ScoreContainer className="ui" />
+            <ScoreContainer />
           </main>
           <aside className="l-sidebar">
             <TransactionsContainer />
-            {this.renderModerationPanel()}
           </aside>
         </div>
       </div>
