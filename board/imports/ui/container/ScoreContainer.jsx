@@ -16,7 +16,7 @@ export default class ScoreContainer extends React.Component {
   render() {
     console.debug('RENDER', this);
     return (
-      <div className="score">
+      <div className="scoreBoard">
         <h3 className="title">PONTOS</h3>
         <ScoreBoard
           scoreList={this.sortedData()}

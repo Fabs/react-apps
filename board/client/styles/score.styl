@@ -1,8 +1,8 @@
 @import './colors.import'
 
-.score
+.scoreBoard
+  color: brand-base
   .title
-    color: brand-color
     margin: 20px
 
   //TODO: responsive table
@@ -20,27 +20,41 @@
       margin: 15px 0
       width: 100%
 
-    div.player
+    .player
       flex: 1
 
-      img.avatar
+      .avatar
         width: 65px
         float: left
         margin: 10px
 
-      span.name
+      .name
         float:left
         margin-top: 35px
 
-    div.score
+    .score
       flex: 0 1 5em
 
       display: inline-block
       text-align: center
 
-      span.value
+      .value
         font-size: 25px
 
-      span.symbol
-        padding-right: 5px
+      .symbol
+        padding: 0
+        margin: 0
         font-size: 15px
+        color: accent-color
+
+    .score.note
+      color: mid-grey
+
+      .symbol
+        color: mid-grey
+
+    .score:last-child
+      color: brand-color-light
+
+      .symbol
+        color: brand-color-light

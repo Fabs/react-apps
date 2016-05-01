@@ -3,13 +3,13 @@ import {iconFor, imageFor, nameFor} from '../../ui/simbology.js'
 
 export default class PlayerScore extends React.Component {
   pointsLabel(content, key) {
-    const value = content.props[key];
+    const value = content.props[key] || 0;
     return (
-      <div className="score">
-        <span className="value">{value || 0}</span>
+      <div className={`score ${value === 0 ? 'note' : ''}`}>
+        <span className="value">{value}</span>
         <i className={`icon ${iconFor(key)} symbol`} />
         <br />
-        <span className="title">{nameFor(key)}</span>
+        <span className="titlePlayer">{nameFor(key)}</span>
       </div>
     );
   }
@@ -19,10 +19,10 @@ export default class PlayerScore extends React.Component {
     return (
       <li>
         <div className="player">
-            <img
-              className="avatar"
-              src={imageFor(this.props.name)}
-            />
+          <img
+            className="avatar"
+            src={imageFor(this.props.name)}
+          />
           <span className="name">
             {this.props.name[0].toUpperCase() + this.props.name.slice(1)}
           </span>

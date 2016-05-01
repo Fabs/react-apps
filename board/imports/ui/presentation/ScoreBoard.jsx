@@ -18,7 +18,7 @@ export default class ScoreBoard extends React.Component {
     return (
       <div>
         <ActionBarContainer {...this.props} />
-        <ul className="">
+        <ul>
           {this.renderPlayers()}
         </ul>
       </div>

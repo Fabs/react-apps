@@ -38,15 +38,14 @@ export default class TransactionList extends React.Component {
 
         <div className="content">
           <div className="player">
-            <b>{transaction.owner}</b>
-            {' para '} <b><span className="accent">{player}</span></b>
+            <span className="accent">{transaction.owner}</span>
+            {' para '}
+            <span className="accent colorful">{player}</span>
           </div>
           <div className="amount">
-            <b>
-              {`${transaction.points} ${nameFor(transaction.type)}`}
-            </b>
+            {`${transaction.points} ${nameFor(transaction.type)}`}
           </div>
-          <div className="date">
+          <div className="date note">
             {this.formatDate(transaction.created_at)}
           </div>
         </div>

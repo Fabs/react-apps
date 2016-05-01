@@ -3,7 +3,6 @@
 .timeline
   margin: 20px
   overflow-y: auto
-  color: brand-color
 
   .list
     position: relative
@@ -15,7 +14,7 @@
     height: 100%
     content: ''
     position: absolute
-    background-color: brand-color
+    background-color: mid-grey
 
   .item:last-child
     padding-bottom: 0
@@ -32,9 +31,19 @@
       background-color: sidebar-color
       box-shadow: sidebar-color 0 0 0 4px
       top: -4px
+      color: accent-color
 
     .content
       display: inline-block
       margin-left: 5px
       font-size: 12px
       width: 80%
+
+      .accent
+        font-weight: bold
+
+      .colorful
+        color: brand-color-light
+
+      .note
+        color: brand-color-lighter
