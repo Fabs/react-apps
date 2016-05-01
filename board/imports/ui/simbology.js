@@ -54,7 +54,7 @@ function nameFor(key) {
 }
 
 function imageFor(key) {
-  return `http://difrbch1wo7lp.cloudfront.net/images/avatars/player_${key}.svg`;
+  return `http://difrbch1wo7lp.cloudfront.net/images/player/${key}.png`;
 }
 
 export {iconFor, imageFor, nameFor};

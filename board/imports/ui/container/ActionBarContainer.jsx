@@ -84,7 +84,7 @@ export default class ActionBarContainer extends React.Component {
     console.debug('RENDER',this);
     if (!this.props.auth.online) { return (<div></div>); }
     return(
-      <div>
+      <div className="actionBar">
         {this.renderStep()}
       </div>
     );
