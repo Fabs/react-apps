@@ -1,8 +1,21 @@
 import React from 'react';
 import LoginBarContainer from '../container/LoginBarContainer.jsx';
+import ModerationContainer from '../container/ModerationContainer.jsx';
 import Logo from './Logo.jsx';
 
 export default class Brand extends React.Component {
+  // TODO: Do something about it
+  renderModerationPanel() {
+    if (this.context.state.auth.status !== 'admin') {
+      return '';
+    }
+    return (
+      <div>
+        <ModerationContainer />
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="brand">
@@ -10,6 +23,7 @@ export default class Brand extends React.Component {
           <LoginBarContainer />
         </div>
 
+        {this.renderModerationPanel()}
         <Logo />
 
         <h1>
@@ -20,3 +34,10 @@ export default class Brand extends React.Component {
     );
   }
 }
+
+
+// TODO: REFACTOR connect
+Brand.contextTypes = {
+  store: React.PropTypes.object,
+  state: React.PropTypes.object,
+};
