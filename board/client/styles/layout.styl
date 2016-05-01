@@ -1,5 +1,12 @@
+@import './colors.import'
 body, h1, h2, h3, h4
   font-family: 'Source Sans Pro', 'Helvetica Neue'
+
+.l-container, .l-body
+  background-color: content-color
+
+.l-sidebar
+  background-color: sidebar-color
 
 .handwritten
   font-family: 'Gloria Hallelujah','Lato'
@@ -7,15 +14,17 @@ body, h1, h2, h3, h4
 .l-container, .l-body
   display: flex
   flex-direction: column
-  background-color: white
 
 .l-header
   width: 100vw
+  z-index: 2
 
 .l-content
   flex: 1
-  box-shadow:  2px 0px 0px 0px shadow
-  margin-right: 2px
+  box-shadow: 0px 0px 1px 1px shadow;
+  margin-right: 0;
+  z-index: 1;
+  margin-right: 5px
 
 .l-sidebar
   display: none
@@ -26,7 +35,6 @@ body, h1, h2, h3, h4
 .l-body
   width: 100vw
 
-
 @media (min-width: 875px)
   .l-body
     flex-direction: row
@@ -35,7 +43,6 @@ body, h1, h2, h3, h4
   .l-sidebar
     flex: 0 0 20em
     display: block
-    background-color: light-grey
 
   .l-sidebar-control
     display: none

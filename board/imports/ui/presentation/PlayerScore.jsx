@@ -6,11 +6,10 @@ export default class PlayerScore extends React.Component {
     const value = content.props[key];
     return (
       <div className="score">
-        <span class="name">{value || 0}</span>
-        <span className="title">
-          <i className={`icon ${iconFor(key)} symbol`} />
-          {nameFor(key)}
-        </span>
+        <span className="value">{value || 0}</span>
+        <i className={`icon ${iconFor(key)} symbol`} />
+        <br />
+        <span className="title">{nameFor(key)}</span>
       </div>
     );
   }

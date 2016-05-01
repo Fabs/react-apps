@@ -32,7 +32,7 @@ const symbols = {
     name: 'gasto',
   },
   total: {
-    icon: 'trop',
+    icon: 'trophy',
     name: 'TOTAL',
   }
 };
