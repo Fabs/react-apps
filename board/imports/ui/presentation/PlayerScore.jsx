@@ -1,45 +1,40 @@
 import React from 'react';
-import {iconFor, imageFor} from '../../ui/simbology.js'
+import {iconFor, imageFor, nameFor} from '../../ui/simbology.js'
 
 export default class PlayerScore extends React.Component {
   pointsLabel(content, key) {
     const value = content.props[key];
-    if (value !== 0 && !isNaN(value)) {
-      return (
-        <span>
-          {value}
-          <i className={`ui icon ${iconFor(key)}`} />
+    return (
+      <div className="score">
+        <span class="name">{value || 0}</span>
+        <span className="title">
+          <i className={`icon ${iconFor(key)} symbol`} />
+          {nameFor(key)}
         </span>
-      );
-    } else {
-      return '';
-    }
+      </div>
+    );
   }
 
   render() {
     console.debug('RENDER', this);
     return (
-      <tr>
-        <td>
-          <img
-            className="ui tinyx rounded image"
-            src={imageFor(this.props.name)}
-          />
-          {this.props.name[0].toUpperCase() + this.props.name.slice(1)}
-        </td>
-        <td>
-          {this.pointsLabel(this, 'balance')}
-        </td>
-        <td>
-          {this.pointsLabel(this, 'coffee')}
-          {this.pointsLabel(this, 'bread')}
-          {this.pointsLabel(this, 'mess')}
-          {this.pointsLabel(this, 'joke')}
-        </td>
-        <td>
-          {this.props.total}
-        </td>
-      </tr>
+      <li>
+        <div className="player">
+            <img
+              className="avatar"
+              src={imageFor(this.props.name)}
+            />
+          <span className="name">
+            {this.props.name[0].toUpperCase() + this.props.name.slice(1)}
+          </span>
+        </div>
+        {this.pointsLabel(this, 'balance')}
+        {this.pointsLabel(this, 'coffee')}
+        {this.pointsLabel(this, 'bread')}
+        {this.pointsLabel(this, 'mess')}
+        {this.pointsLabel(this, 'joke')}
+        {this.pointsLabel(this, 'total')}
+      </li>
     );
   }
 }

@@ -1,7 +1,7 @@
 const symbols = {
   mess: {
     icon: 'trash outline',
-    title: 'Bagunça',
+    name: 'Bagunça',
   },
   coffee: {
     icon: 'coffee',
@@ -31,18 +31,30 @@ const symbols = {
     icon: 'money',
     name: 'gasto',
   },
+  total: {
+    icon: 'trop',
+    name: 'TOTAL',
+  }
 };
 
 function iconFor(key) {
-  return symbols[key].icon;
-}
-
-function imageFor(key) {
-  return `https://robohash.org/${key}`;
+  if (symbols[key]) {
+    return symbols[key].icon;
+  } else {
+    return 'bug';
+  }
 }
 
 function nameFor(key) {
-  return symbols[key].name;
+  if (symbols[key]) {
+    return symbols[key].name;
+  } else {
+    return 'Oh no!';
+  }
+}
+
+function imageFor(key) {
+  return `http://difrbch1wo7lp.cloudfront.net/images/avatars/player_${key}.svg`;
 }
 
 export {iconFor, imageFor, nameFor};

@@ -18,19 +18,9 @@ export default class ScoreBoard extends React.Component {
     return (
       <div>
         <ActionBarContainer {...this.props} />
-        <table className="">
-          <thead>
-            <tr>
-              <th className="">Maravilhoso Indivíduo</th>
-              <th className="">$ Lojinha</th>
-              <th className="">Categorias</th>
-              <th className="">Ganhos Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.renderPlayers()}
-          </tbody>
-        </table>
+        <ul className="">
+          {this.renderPlayers()}
+        </ul>
       </div>
     );
   }
