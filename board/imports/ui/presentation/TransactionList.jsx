@@ -16,9 +16,18 @@ export default class TransactionList extends React.Component {
     console.debug('RENDER', this);
     return (
       <div className="timeline">
-        <h2 className="title">Auditoria</h2>
+        <h3 className="title">AUDITORIA</h3>
         <div className="list">
           {this.renderTransactions()}
+          <div className="item">
+            <i className="icon circular circle" />
+
+            <div className="content">
+              <div className="player">
+                <b>20 anos atrás</b>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

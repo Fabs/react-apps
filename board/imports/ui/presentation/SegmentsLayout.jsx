@@ -26,7 +26,6 @@ export default class SegmentsLayout extends React.Component {
         </header>
         <div className="l-body">
           <main className="l-content">
-            <h2 className="title">Pontos</h2>
             <ScoreContainer className="ui" />
           </main>
           <aside className="l-sidebar">

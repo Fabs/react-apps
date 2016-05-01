@@ -37,18 +37,18 @@ export default class TransactionList extends React.Component {
         <i className={`${iconFor(transaction.type)} icon circular`} />
 
         <div className="content">
-          <b>{transaction.owner}</b>
-          {' para '} <b><span className="accent">{player}</span></b>
-        </div>
-        <div className="amount">
-          <b>
-            {transaction.points}
-            {transaction.poins === 1 ? 'ponto' : 'pontos'}
-            {nameFor(transaction.type)}
-          </b>
-        </div>
-        <div className="date">
-          {this.formatDate(transaction.created_at)}
+          <div className="player">
+            <b>{transaction.owner}</b>
+            {' para '} <b><span className="accent">{player}</span></b>
+          </div>
+          <div className="amount">
+            <b>
+              {`${transaction.points} ${nameFor(transaction.type)}`}
+            </b>
+          </div>
+          <div className="date">
+            {this.formatDate(transaction.created_at)}
+          </div>
         </div>
 
         <span className="controls ui floated right">

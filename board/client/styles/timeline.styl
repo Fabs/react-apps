@@ -1,0 +1,41 @@
+@import './colors.import'
+
+.timeline
+  margin-top: 10px
+  margin: 20px
+  overflow-y: scroll
+
+  .list
+    position: relative
+
+  .list:before
+    font-size: 14px
+    left: 14px
+    width: 1px
+    height: 100%
+    content: ''
+    position: absolute
+    background-color: mid-grey
+
+  .item:last-child
+    padding-bottom: 0
+    
+  .item
+    display: block
+    padding-bottom: 10px
+
+    .icon
+      display: inline-block
+      vertical-align: top
+      position: relative
+      z-index: 1
+      background-color: light-grey
+      background-color: white
+      box-shadow: white 0 0 0 4px
+      top: -4px
+
+    .content
+      display: inline-block
+      margin-left: 5px
+      font-size: 12px
+      width: 80%
