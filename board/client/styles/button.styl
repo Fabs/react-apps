@@ -1,0 +1,26 @@
+@import './colors.import'
+
+button
+  padding: 10px
+  border: 1px solid
+  border-radius: 5px
+  border-color: white
+
+  &[disabled=disabled], &:disabled:hover, &:disabled
+    background-color: light-grey !important
+    color: brand-base !important
+
+button.red-brand
+  color: white
+  background-color: brand-color-red
+
+  &:hover
+    background-color: darken(brand-color-red, 10%)
+
+
+button.green-brand
+  color: white
+  background-color: brand-color
+
+  &:hover
+    background-color: darken(brand-color, 10%)

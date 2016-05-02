@@ -1,12 +1,14 @@
-// function scoreGrant(options) {
-//   return function(dispatch) {
-//     Meteor.call('player.grant_points', options, (error) => {
-//       if (!error) {
-//         dispatch(scoreGrantFinish());
-//       }
-//     });
-//   };
-// }
+function scoreGrantConfirm(options) {
+  return function(dispatch) {
+    Meteor.call('player.grant_points_list', options, (error) => {
+      if (!error) {
+        dispatch(scoreGrantFinish());
+      } else {
+        console.error('Method error: ', error);
+      }
+    });
+  };
+}
 
 function scoreSetPlayers(player) {
   return {
@@ -35,4 +37,4 @@ function scoreSetActing() {
 }
 
 // export {scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish, scoreSetActing};
-export {scoreGrantFinish, scoreSetActing, scoreSetType, scoreSetPlayers};
+export {scoreGrantFinish, scoreSetActing, scoreSetType, scoreSetPlayers, scoreGrantConfirm};

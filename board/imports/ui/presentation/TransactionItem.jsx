@@ -12,22 +12,6 @@ export default class TransactionList extends React.Component {
     return moment(date).format('D [de] MMMM [às] HH:mm');
   }
 
-  renderTransactionConfirm() {
-    const action = this.props.onTransactionConfirm;
-    if (action) {
-      return <button className="ui button green" onClick={action} >OK</button>;
-    }
-    return '';
-  }
-
-  renderTransactionAbort() {
-    const action = this.props.onTransactionAbort;
-    if (action) {
-      return <button className="ui button red" onClick={action} >CANCELAR</button>;
-    }
-    return '';
-  }
-
   render() {
     console.debug('RENDER', this);
     const transaction = this.props.transaction;
@@ -49,11 +33,6 @@ export default class TransactionList extends React.Component {
             {this.formatDate(transaction.created_at)}
           </div>
         </div>
-
-        <span className="controls ui floated right">
-          {this.renderTransactionConfirm()}
-          {this.renderTransactionAbort()}
-        </span>
       </div>
     );
   }

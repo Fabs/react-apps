@@ -37,6 +37,7 @@ export default class Brand extends React.Component {
 
 
 // TODO: REFACTOR connect
+// TODO: Presentation components should not use context
 Brand.contextTypes = {
   store: React.PropTypes.object,
   state: React.PropTypes.object,

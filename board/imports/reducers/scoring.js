@@ -4,7 +4,7 @@ function scoring(state = {step: 0, players: {}}, action) {
   switch (action.type) {
   case 'LOGIN':
     if (action.user.profile.status != null) {
-      return {step: 2, players: state.players};
+      return {step: 1, players: state.players};
     }
     return state;
   case 'FLUSH_PLAYERS':

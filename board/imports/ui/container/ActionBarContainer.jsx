@@ -3,16 +3,25 @@ import ActionBarActions from '../presentation/ActionBarActions.jsx';
 import ActionBarBegin from '../presentation/ActionBarBegin.jsx';
 import ActionBarPlayers from '../presentation/ActionBarPlayers.jsx';
 import ActionBarConfirmation from '../presentation/ActionBarConfirmation.jsx';
-import {scoreSetActing, scoreGrantFinish} from '../../actions/scoring.js';
+import {scoreSetActing, scoreGrantFinish, scoreGrantConfirm} from '../../actions/scoring.js';
 import {iconFor, imageFor, nameFor} from '../simbology.js';
 
+//TODO: Refator subcomponents to stop using state everywhere
 export default class ActionBarContainer extends React.Component {
+  abortTransaction() {
+    this.context.store.dispatch(scoreGrantFinish());
+  }
+
+  confirmTransaction() {
+    this.context.store.dispatch(scoreGrantConfirm(this.context.state.scoring));
+  }
+
   toggleAction() {
     const step = this.props.scoring.step;
     if (step === 1) {
       this.context.store.dispatch(scoreSetActing());
     } else {
-      this.context.store.dispatch(scoreGrantFinish());
+      this.abortTransaction();
     }
   }
 
@@ -43,7 +52,11 @@ export default class ActionBarContainer extends React.Component {
       return(<div className="selectors">
         <ActionBarActions options={options} />
         <ActionBarPlayers players={this.props.players} />
-        <ActionBarConfirmation transaction={transaction} />
+        <ActionBarConfirmation
+          transaction={transaction}
+          onTransactionConfirm={this.confirmTransaction.bind(this)}
+          onTransactionAbort={this.abortTransaction.bind(this)}
+        />
       </div>);
     default:
       return (<span style={{color: 'red', marginLeft: 20}}>

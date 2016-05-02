@@ -34,6 +34,7 @@ export default class ActionBarActions extends React.Component {
 }
 
 // TODO: REFACTOR connect
+// TODO: Presentation components should not use context
 ActionBarActions.contextTypes = {
   store: React.PropTypes.object,
   state: React.PropTypes.object,

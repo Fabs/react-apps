@@ -33,6 +33,7 @@ export default class ActionBarPlayers extends React.Component {
 }
 
 // TODO: REFACTOR connect
+// TODO: Presentation components should not use context
 ActionBarPlayers.contextTypes = {
   store: React.PropTypes.object,
   state: React.PropTypes.object,
