@@ -53,10 +53,10 @@ function nameFor(key) {
   }
 }
 
-function imageFor(key, active=true) {
+function imageFor(key, active = true) {
   const base = 'http://difrbch1wo7lp.cloudfront.net/images/player/';
   let grey = '';
-  if (!active) {
+  if (active !== true) {
     grey = '_grey';
   }
   return `${base}${key}${grey}.png`;

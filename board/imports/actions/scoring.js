@@ -1,24 +1,24 @@
-function scoreSetType(scoreType) {
-  return {
-    type: 'SCORE_SET_TYPE',
-    scoreType,
-  };
-}
+// function scoreGrant(options) {
+//   return function(dispatch) {
+//     Meteor.call('player.grant_points', options, (error) => {
+//       if (!error) {
+//         dispatch(scoreGrantFinish());
+//       }
+//     });
+//   };
+// }
 
-function scoreSetPlayer(player) {
+function scoreSetPlayers(player) {
   return {
     type: 'SCORE_SET_PLAYER',
     player,
   };
 }
 
-function scoreGrant(options) {
-  return function(dispatch) {
-    Meteor.call('player.grant_points', options, (error) => {
-      if (!error) {
-        dispatch(scoreGrantFinish());
-      }
-    });
+function scoreSetType(scoreType) {
+  return {
+    type: 'SCORE_SET_TYPE',
+    scoreType,
   };
 }
 
@@ -34,4 +34,5 @@ function scoreSetActing() {
   };
 }
 
-export {scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish, scoreSetActing};
+// export {scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish, scoreSetActing};
+export {scoreGrantFinish, scoreSetActing, scoreSetType, scoreSetPlayers};

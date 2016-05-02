@@ -3,26 +3,10 @@ import ActionBarActions from '../presentation/ActionBarActions.jsx';
 import ActionBarBegin from '../presentation/ActionBarBegin.jsx';
 import ActionBarPlayers from '../presentation/ActionBarPlayers.jsx';
 import ActionBarConfirmation from '../presentation/ActionBarConfirmation.jsx';
-import {scoreSetType, scoreSetPlayer, scoreGrant, scoreGrantFinish, scoreSetActing} from '../../actions/scoring.js';
+import {scoreSetActing, scoreGrantFinish} from '../../actions/scoring.js';
 import {iconFor, imageFor, nameFor} from '../simbology.js';
 
 export default class ActionBarContainer extends React.Component {
-  selectScoreMode(scoreType) {
-    this.context.store.dispatch(scoreSetType(scoreType));
-  }
-
-  selectPlayer(evt) {
-    this.context.store.dispatch(scoreSetPlayer(evt.target.value));
-  }
-
-  confirmTransaction() {
-    this.context.store.dispatch(scoreGrant(this.props.scoring));
-  }
-
-  abortTransaction() {
-    this.context.store.dispatch(scoreGrantFinish());
-  }
-
   toggleAction() {
     const step = this.props.scoring.step;
     if (step === 1) {
@@ -58,12 +42,10 @@ export default class ActionBarContainer extends React.Component {
           {owner: 'Você', points: 1});
 
       return(<div className="selectors">
-        <ActionBarActions options={options}/>
+        <ActionBarActions options={options} />
         <ActionBarPlayers players={this.props.players} />
         <ActionBarConfirmation transaction={transaction} />
       </div>);
-    case 3:
-      return '';
     default:
       return (<span style={{color: 'red', marginLeft: 20}}>
           Seu cadastro precisa ser aprovado para poder distribuir Pontos!
