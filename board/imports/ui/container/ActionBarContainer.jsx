@@ -17,7 +17,6 @@ export default class ActionBarContainer extends React.Component {
   }
 
   renderControl(step) {
-    console.log(step);
     if (step === 0) {
       return <div style={{height: '16px'}}></div>;
     } else {
