@@ -1,27 +1,23 @@
 import React from 'react';
+import {iconFor, imageFor, nameFor} from '../simbology.js';
 
 export default class ActionBarActions extends React.Component {
+  // this.selectScoreMode.bind(this, props[0])
+  // {props[1] === 'red' ? -1 : 1}
   render() {
-    return <div>No pain no gain those animals</div>;
-    // return (
-    //   <div>
-    //     {options.map((props, i) => {
-    //       return (
-    //         <div
-    //           key={i}
-    //           onClick={this.selectScoreMode.bind(this, props[0])}
-    //           className="ui labeled button"
-    //         >
-    //           <div className={`ui button ${props[1]}`}>
-    //             <i className={`icon ${iconFor(props[0])}`} />
-    //             {nameFor(props[0])}
-    //           </div>
-    //           <a className={`ui basic ${props[1]} left pointing label`}>
-    //             {props[1] === 'red' ? -1 : 1}
-    //           </a>
-    //         </div>);
-    //     })}
-    //   </div>
-    // );
+    return (
+      <div className="categorySelector">
+        <span className="title">Selecione um Colega</span>
+        <ul className="categories">
+          {this.props.options.map((props, i) => {
+            return (
+              <li key={i}>
+                <i className={`icon ${iconFor(props[0])} circular`} />
+                {`(${props[1] === 'red' ? -1 : 1}) ${nameFor(props[0])}`}
+              </li>);
+          })}
+        </ul>
+      </div>
+    );
   }
 }

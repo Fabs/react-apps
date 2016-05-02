@@ -59,7 +59,7 @@ function imageFor(key, active=true) {
   if (!active) {
     grey = '_grey';
   }
-  return `http://difrbch1wo7lp.cloudfront.net/images/player/${key}${grey}.png`;
+  return `${base}${key}${grey}.png`;
 }
 
 export {iconFor, imageFor, nameFor};

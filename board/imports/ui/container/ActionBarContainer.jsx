@@ -53,15 +53,17 @@ export default class ActionBarContainer extends React.Component {
       const options = [['coffee', 'green'], ['bread', 'green'], ['joke', 'red'],
         ['mess', 'red']];
 
-      return(<div>
+      const transaction = Object.assign({},
+          this.props.scoring,
+          {owner: 'Você', points: 1});
+
+      return(<div className="selectors">
+        <ActionBarActions options={options}/>
         <ActionBarPlayers players={this.props.players} />
-        <ActionBarActions />
+        <ActionBarConfirmation transaction={transaction} />;
       </div>);
     case 3:
-      const transaction = Object.assign({},
-        this.props.scoring,
-        {owner: 'Você', points: 1});
-      return <ActionBarConfirmation transaction={transaction} />;
+      return '';
     default:
       return (<span style={{color: 'red'}}>
           Seu cadastro precisa ser aprovado para poder distribuir Pontos!

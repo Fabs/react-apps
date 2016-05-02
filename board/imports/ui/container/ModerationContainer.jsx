@@ -12,7 +12,7 @@ export default class ModerationContainer extends React.Component {
 
     return (
       <ul className="moderation">
-        Moderação
+        {moderatables.length !== 0 ? 'Moderação' : ''}
         {moderatables.map((moderatable, i) => {
           return (<li key={i}>
             <a onClick={this.approve.bind(this, moderatable._id)}>

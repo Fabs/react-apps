@@ -5,15 +5,18 @@ import {iconFor, imageFor, nameFor} from '../simbology.js';
 export default class ActionBarPlayers extends React.Component {
   render() {
     return (
-      <ul className="players">
-        {this.props.players.map((player, i) => {
-          return (
-            <li key={i}>
-              <img src={imageFor(player.name, false)}></img>
-              {player.name[0].toUpperCase() + player.name.slice(1)}
-            </li>
-        )})}
-      </ul>
+      <div className="playerSelector">
+        <span className="title">Selecione um Colega</span>
+        <ul className="players">
+          {this.props.players.map((player, i) => {
+            return (
+              <li key={i}>
+                <img src={imageFor(player.name, false)}></img>
+                {player.name[0].toUpperCase() + player.name.slice(1)}
+              </li>
+          )})}
+        </ul>
+      </div>
     );
   }
 }

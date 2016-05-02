@@ -1,3 +1,5 @@
+@import './colors.import'
+
 .actionBar
   text-align: right
   position: relative
@@ -6,21 +8,50 @@
 
   .actionStart
     margin-right: 30px
+    cursor: pointer
 
   .actionArea
     background-color: white
     padding-right: 30px
+    text-align: left
 
-  ul.players
+    display: flex
+    flex-direction: row
+
+  .selectors
+    display: flex
+
+  .playerSelector
+    flex: 6
+
+  .categorySelector
+    flex: 4
+
+  .confirmationSelector
+    flex: 2
+
+  ul.players, ul.categories
     display: flex
     flex-wrap: wrap
-    width: 50%
+    margin-left: 20px
+    //border-left: 1px solid mid-grey
+
+    li:hover
+      color: brand-color
+
+      i
+        background-color: brand-color
+        color: white
+        border-color: brand-color
 
     li
       flex: 0 0 8em
+      align-self: center
       margin: 0
       padding: 0
-      min-height: 0
+      min-height: 32px
+      cursor: pointer
 
-      img
+      img, i
         width: 25px
+        margin: 3px 5px 3px 0
