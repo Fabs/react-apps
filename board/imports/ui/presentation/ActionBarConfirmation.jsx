@@ -7,6 +7,7 @@ export default class ActionBarConfirmation extends React.Component {
   render() {
     return (
       <div className="confirmationSelector">
+        <span className="title">Confirmação</span>
         <TransactionItem
           key='0'
           transaction={this.props.transaction}

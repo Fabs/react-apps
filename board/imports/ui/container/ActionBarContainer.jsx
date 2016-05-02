@@ -60,12 +60,12 @@ export default class ActionBarContainer extends React.Component {
       return(<div className="selectors">
         <ActionBarActions options={options}/>
         <ActionBarPlayers players={this.props.players} />
-        <ActionBarConfirmation transaction={transaction} />;
+        <ActionBarConfirmation transaction={transaction} />
       </div>);
     case 3:
       return '';
     default:
-      return (<span style={{color: 'red'}}>
+      return (<span style={{color: 'red', marginLeft: 20}}>
           Seu cadastro precisa ser aprovado para poder distribuir Pontos!
       </span>);
     }
@@ -76,10 +76,14 @@ export default class ActionBarContainer extends React.Component {
     console.debug('RENDER', this);
     if (!this.props.auth.online) {return (<div></div>);}
 
+    let classNameOption = '';
+    if (this.props.scoring.step !== 1) {
+      classNameOption = 'actionArea';
+    }
     return (
       <div className="actionBar">
         {this.renderControl(this.props.scoring.step)}
-        <div className="actionArea">
+        <div className={classNameOption}>
           {this.renderStep(this.props.scoring.step)}
         </div>
       </div>
