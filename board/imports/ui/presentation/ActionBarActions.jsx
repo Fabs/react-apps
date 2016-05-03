@@ -10,7 +10,7 @@ export default class ActionBarActions extends React.Component {
   render() {
     return (
       <div className="categorySelector">
-        <span className="title">Selecione um Colega</span>
+        <span className="title">Selecione uma Ação</span>
         <ul className="categories">
           {this.props.options.map((props, i) => {
             if (props[0] === this.context.state.scoring.type){
