@@ -1,5 +1,11 @@
-import { Mongo } from 'meteor/mongo';
+/* eslint import/no-unresolved: [2, { ignore: ["meteor"]}] */
+import {Mongo} from 'meteor/mongo';
 
-export default Players = new Mongo.Collection('players');
+// TODO: SCHEMA Players
+const Players = new Mongo.Collection('players');
 
-//TODO: SCHEMA Players
+Players.available = function() {
+  return Players.find().fetch().map((player) => player.name);
+};
+
+export default Players;

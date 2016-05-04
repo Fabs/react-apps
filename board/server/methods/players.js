@@ -1,9 +1,33 @@
-import { Meteor } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
-import { check } from 'meteor/check';
+/* eslint import/no-unresolved: [2, { ignore: ["meteor"]}] */
+
+import {Meteor} from 'meteor/meteor';
+import {SimpleSchema} from 'meteor/aldeed:simple-schema';
 import moment from 'moment-timezone';
 import Players from '/imports/api/collections/players.js'
 import Transactions from '/imports/api/collections/transactions.js'
+
+const grantPointsBatch = {
+  name: 'player.grantPointsBatch',
+  validate(args) {
+    return new SimpleSchema({
+      players: {type: [String], allowedValues: Players.available()},
+    }).validate(args);
+  },
+  run() {
+    if (!Meteor.user()) {
+      throw new Meteor.Error('auth.no.user', 'Only signed users can give points');
+    }
+  },
+};
+
+export {grantPointsBatch};
+
+Meteor.methods({
+  [grantPointsBatch.name]: function(args) {
+    grantPointsBatch.validate.call(this, args);
+    grantPointsBatch.run.call(this, args);
+  },
+});
 
 //TODO: REFACTOR Organize - Two tier methods
 Meteor.methods({
@@ -61,6 +85,9 @@ Meteor.methods({
     }
   },
   'player.grant_points_list': (options) => {
+    if (!Meteor.user()) {
+      throw new Meteor.Error('auth.no.user','Only signed users can give points');
+    }
     if (options.type) {
       const type = options.type;
       const user = Meteor.user();
