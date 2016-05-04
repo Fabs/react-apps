@@ -3,14 +3,16 @@
 import {Meteor} from 'meteor/meteor';
 import {SimpleSchema} from 'meteor/aldeed:simple-schema';
 import moment from 'moment-timezone';
-import Players from '/imports/api/collections/players.js'
-import Transactions from '/imports/api/collections/transactions.js'
+import Players from '../../imports/api/collections/players.js';
+import Transactions from '../../imports/api/collections/transactions.js';
+import Game from '../../imports/api/game.js';
 
 const grantPointsBatch = {
   name: 'player.grantPointsBatch',
   validate(args) {
     return new SimpleSchema({
-      players: {type: [String], allowedValues: Players.available()},
+      players: {type: [String], allowedValues: Game.players()},
+      type: {type: String, allowedValues: Game.scores()},
     }).validate(args);
   },
   run() {
