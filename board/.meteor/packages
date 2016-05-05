@@ -28,7 +28,7 @@ practicalmeteor:mocha
 xolvio:cleaner
 dburles:factory
 aldeed:simple-schema
-hwillson:stub-collections
 underscore
 practicalmeteor:chai
 practicalmeteor:sinon
+hwillson:stub-collections
