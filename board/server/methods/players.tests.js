@@ -71,7 +71,7 @@ describe('player.grant_points', function() {
   //     expect(true).to.be.false;
   //   });
   // });
-  // });
+
   // describe('grant points', function() {
   //   it('fails to no player', function() {
   //     expect(true).to.be.false;
