@@ -19,7 +19,6 @@ standard-minifier-js
 semantic:ui-css
 blaze-html-templates
 simple:rest
-meteortoys:allthings
 accounts-facebook
 meteorhacks:kadira
 stylus
@@ -32,3 +31,4 @@ underscore
 practicalmeteor:chai
 practicalmeteor:sinon
 hwillson:stub-collections
+meteortoys:allthings
